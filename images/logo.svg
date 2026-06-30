@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Colored circle segments -->
+  <!-- Top-left: Orange/Yellow -->
+  <path d="M100 10 A90 90 0 0 0 10 100" stroke="#F7941D" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <!-- Top-right: Green/Lime -->
+  <path d="M100 10 A90 90 0 0 1 190 100" stroke="#8DC63F" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <!-- Bottom-left: Teal -->
+  <path d="M10 100 A90 90 0 0 0 100 190" stroke="#00A79D" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <!-- Bottom-right: Red/Orange -->
+  <path d="M190 100 A90 90 0 0 1 100 190" stroke="#E8572A" stroke-width="14" fill="none" stroke-linecap="round"/>
+
+  <!-- Gap highlights (small circles at the gaps for the cross effect) -->
+
+  <!-- Family figures inside -->
+  <g fill="none" stroke="#1B5B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Man (left figure) - standing, arm extended -->
+    <!-- Head -->
+    <circle cx="72" cy="52" r="10" />
+    <!-- Body -->
+    <line x1="72" y1="62" x2="72" y2="100" />
+    <!-- Left arm (down) -->
+    <line x1="72" y1="75" x2="58" y2="90" />
+    <!-- Right arm (extended toward woman) -->
+    <line x1="72" y1="75" x2="95" y2="68" />
+    <!-- Left leg -->
+    <line x1="72" y1="100" x2="60" y2="125" />
+    <!-- Right leg -->
+    <line x1="72" y1="100" x2="84" y2="125" />
+
+    <!-- Woman (right figure) - pregnant silhouette -->
+    <!-- Head -->
+    <circle cx="120" cy="55" r="10" />
+    <!-- Hair flowing back -->
+    <path d="M120 45 Q130 42 128 55" />
+    <!-- Neck to body -->
+    <line x1="120" y1="65" x2="120" y2="72" />
+    <!-- Body with pregnant belly curve -->
+    <path d="M120 72 Q118 85 115 95 Q112 105 115 115" />
+    <path d="M120 72 Q125 85 128 95 Q132 105 125 115" />
+    <!-- Belly curve -->
+    <path d="M115 95 Q118 105 125 100" />
+    <!-- Left arm -->
+    <line x1="120" y1="78" x2="108" y2="92" />
+    <!-- Right arm (holding belly) -->
+    <path d="M120 78 Q128 88 126 95" />
+    <!-- Legs -->
+    <line x1="115" y1="115" x2="108" y2="140" />
+    <line x1="125" y1="115" x2="130" y2="140" />
+
+    <!-- Baby (bottom center) -->
+    <!-- Baby head -->
+    <circle cx="95" cy="120" r="7" />
+    <!-- Baby body (curled) -->
+    <path d="M95 127 Q92 135 90 142 Q88 148 92 150" />
+    <path d="M95 127 Q98 135 100 142 Q102 148 98 150" />
+    <!-- Baby arms -->
+    <path d="M92 132 Q86 130 84 135" />
+    <path d="M98 132 Q104 130 106 135" />
+  </g>
+</svg>

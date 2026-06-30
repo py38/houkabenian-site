@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades de Donateurs — HOUKABENIAN</title>
+    <meta name="description" content="Découvrez les grades de donateurs HOUKABENIAN. Chaque contribution compte et vous fait évoluer du grade Bronze au grade Platine.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bronze: #CD7F32;
+            --argent: #C0C0C0;
+            --or: #FFD700;
+            --platine: #E5E4E2;
+            --diamant: #B9F2FF;
+            --etoile: #FFD700;
+        }
+
+        .grades-page { padding-top: 120px; padding-bottom: 80px; min-height: 100vh; background: #f9fafb; }
+
+        .grades-hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--navy) 0%, #2a5a8c 100%);
+            border-radius: 24px;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .grades-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(247,148,29,0.1) 0%, transparent 70%);
+            animation: rotateBg 20s linear infinite;
+        }
+        @keyframes rotateBg { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .grades-hero h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; position: relative; }
+        .grades-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; position: relative; }
+
+        /* Stats bar */
+        .grades-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .grades-stats .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .grades-stats .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--orange);
+            line-height: 1;
+        }
+        .grades-stats .stat-label {
+            font-size: 0.85rem;
+            color: var(--grey);
+            margin-top: 4px;
+        }
+
+        /* Instruction */
+        .grades-instruction {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--grey);
+            font-size: 0.95rem;
+        }
+        .grades-instruction i {
+            color: var(--orange);
+            margin-right: 6px;
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .grade-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .grade-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+        .grade-card.active {
+            transform: translateY(0);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .grade-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        .grade-card.bronze::before { background: var(--bronze); }
+        .grade-card.argent::before { background: var(--argent); }
+        .grade-card.or::before { background: linear-gradient(90deg, #FFD700, #FFA500); }
+        .grade-card.platine::before { background: linear-gradient(90deg, #E5E4E2, #B0B0B0); }
+        .grade-card.diamant::before { background: linear-gradient(90deg, #B9F2FF, #87CEEB); }
+        .grade-card.etoile::before { background: linear-gradient(90deg, #FFD700, #FF6B35, #FFD700); height: 6px; }
+
+        .grade-card-header {
+            padding: 40px 30px 24px;
+            text-align: center;
+        }
+
+        .grade-icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .grade-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .grade-range {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+        }
+        .bronze .grade-range { background: rgba(205,127,50,0.1); color: var(--bronze); }
+        .argent .grade-range { background: rgba(192,192,192,0.15); color: #888; }
+        .or .grade-range { background: rgba(255,215,0,0.1); color: #B8860B; }
+        .platine .grade-range { background: rgba(229,228,226,0.2); color: #666; }
+        .diamant .grade-range { background: rgba(185,242,255,0.2); color: #0077B6; }
+        .etoile .grade-range { background: rgba(255,215,0,0.1); color: #B8860B; }
+
+        .grade-desc {
+            color: var(--grey);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .grade-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            border-top: 1px solid #f0f0f0;
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        .grade-card:hover .grade-toggle {
+            background: rgba(247,148,29,0.04);
+        }
+        .grade-toggle i {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+        .grade-card.active .grade-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .grade-donor-count {
+            background: var(--orange);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+            min-width: 22px;
+            text-align: center;
+        }
+
+        /* Donor list panel */
+        .grade-donors {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: #fafbfc;
+            border-top: 0 solid transparent;
+        }
+        .grade-card.active .grade-donors {
+            max-height: 600px;
+            border-top: 1px solid #f0f0f0;
+            overflow-y: auto;
+        }
+
+        .grade-donors-inner {
+            padding: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.1s, padding 0.3s ease;
+        }
+        .grade-card.active .grade-donors-inner {
+            padding: 20px 24px;
+            opacity: 1;
+        }
+
+        .donor-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease;
+        }
+        .donor-item:hover {
+            transform: translateX(4px);
+        }
+        .donor-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .donor-rank {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--grey);
+            flex-shrink: 0;
+            margin-right: 12px;
+        }
+        .donor-item:nth-child(1) .donor-rank { background: linear-gradient(135deg, #FFD700, #FFA500); color: white; }
+        .donor-item:nth-child(2) .donor-rank { background: linear-gradient(135deg, #C0C0C0, #A0A0A0); color: white; }
+        .donor-item:nth-child(3) .donor-rank { background: linear-gradient(135deg, #CD7F32, #A0622D); color: white; }
+
+        .donor-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .donor-name {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .donor-dons {
+            font-size: 0.8rem;
+            color: var(--grey);
+            margin-top: 2px;
+        }
+
+        .donor-total {
+            font-weight: 700;
+            color: var(--orange);
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+
+        .donor-empty {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+        .donor-empty i {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0.3;
+        }
+
+        .donor-loading {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .donor-loading .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f0f0f0;
+            border-top-color: var(--orange);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 10px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .donor-loading span {
+            color: var(--grey);
+            font-size: 0.85rem;
+        }
+
+        .grade-card.platine {
+            background: linear-gradient(135deg, #F5F5F5, #E8E8E8);
+            border: 2px solid rgba(180,180,180,0.4);
+        }
+        .grade-card.platine .grade-donors {
+            background: rgba(245,245,245,0.5);
+        }
+        .grade-card.etoile {
+            background: linear-gradient(135deg, #FFFBEB, #FFF8E1);
+            border: 2px solid rgba(255,215,0,0.3);
+        }
+        .grade-card.etoile .grade-donors {
+            background: rgba(255,251,235,0.5);
+        }
+
+        /* How it works */
+        .grades-how {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .grades-how h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .how-step {
+            text-align: center;
+        }
+        .how-step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0 auto 16px;
+        }
+        .how-step h3 {
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .how-step p {
+            font-size: 0.9rem;
+            color: var(--grey);
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .grades-cta {
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            border-radius: 24px;
+            color: white;
+        }
+        .grades-cta h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+        .grades-cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+        .grades-cta .btn {
+            background: white;
+            color: var(--red);
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+        .grades-cta .btn:hover { transform: scale(1.05); }
+
+        /* Header */
+        .article-page-header { position: fixed; top: 0; left: 0; right: 0; background: var(--navy); padding: 16px 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+        .article-page-header .container { display: flex; align-items: center; justify-content: space-between; }
+        .article-page-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .article-page-header .logo img { width: 44px; height: 44px; border-radius: 50%; }
+        .article-page-header .logo span { font-weight: 800; font-size: 1.1rem; letter-spacing: 2px; color: white; }
+        .article-page-header .btn-header { font-size: 0.85rem; padding: 10px 24px; }
+
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--orange); font-weight: 600; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
+        .back-link:hover { gap: 12px; color: var(--red); }
+
+        /* Config notice */
+        .config-notice {
+            background: linear-gradient(135deg, #FFF3CD, #FFF8E1);
+            border: 1px solid #FFE082;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+        .config-notice i {
+            font-size: 1.2rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .config-notice strong { color: #664D03; }
+
+        @media (max-width: 768px) {
+            .grades-page { padding-top: 100px; }
+            .grades-hero { padding: 40px 16px; }
+            .grades-grid { grid-template-columns: 1fr; }
+            .grades-how { padding: 30px 20px; }
+            .grades-stats { gap: 24px; }
+            .grades-stats .stat-number { font-size: 1.5rem; }
+            .donor-item { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-page-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="HOUKABENIAN">
+                <span>HOUKABENIAN</span>
+            </a>
+            <div style="display:flex;align-items:center;gap:12px;"><button class="lang-switch" title="Switch language">FR / EN</button><a href="index.html#don" class="btn btn-primary btn-header" data-i18n="nav_faire_don">Faire un don</a></div>
+        </div>
+    </header>
+
+    <main class="grades-page">
+        <div class="container">
+            <a href="index.html#don" class="back-link">
+                <i class="fas fa-arrow-left"></i> <span data-i18n="grades_retour">Retour au site</span>
+            </a>
+
+            <div class="grades-hero">
+                <h1><i class="fas fa-award"></i data-i18n="grades_title"> Grades de Donateurs</h1>
+                <p data-i18n="grades_hero_text">Chaque don compte. Votre générosité vous fait évoluer dans notre système de grades. Plus vous donnez, plus votre impact grandit.</p>
+            </div>
+
+            <!-- Stats dynamiques -->
+            <div class="grades-stats" id="gradesStats" style="display: none;">
+                <div class="stat-item">
+                    <span class="stat-number" id="statDonateurs">0</span>
+                    <span class="stat-label" data-i18n="grades_donateurs">Donateurs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="statDons">0</span>
+                    <span class="stat-label" data-i18n="grades_dons">Dons enregistrés</span>
+                </div>
+            </div>
+
+            <!-- Notice si pas encore configuré -->
+            <div class="config-notice" id="configNotice" style="display: none;">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Mode démonstration</strong> — Le Google Sheets n'est pas encore connecté.
+                    Les données ci-dessous sont des exemples. Une fois le Google Sheets configuré,
+                    les vrais donateurs apparaîtront automatiquement.
+                </div>
+            </div>
+
+            <p class="grades-instruction">
+                <i class="fas fa-hand-pointer"></i> <span data-i18n="grades_instruction">Cliquez sur un grade pour voir les donateurs</span>
+            </p>
+
+            <div class="grades-grid">
+                <div class="grade-card platine" data-grade="Platine">
+                    <div class="grade-card-header">
+                        <span class="grade-icon">💎</span>
+                        <h3 class="grade-name">Platine</h3>
+                        <p class="grade-desc" data-i18n="grade_platine_desc">Le sommet de la générosité. Votre don exceptionnel permet de lancer de nouveaux projets et d'étendre notre couverture dans les zones les plus reculées.</p>
+                    </div>
+                    <div class="grade-toggle">
+                        <span>Voir les donateurs</span>
+                        <span class="grade-donor-count" data-count="Platine">0</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="grade-donors">
+                        <div class="grade-donors-inner" data-list="Platine"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card diamant" data-grade="Diamant">
+                    <div class="grade-card-header">
+                        <span class="grade-icon">💠</span>
+                        <h3 class="grade-name">Diamant</h3>
+                        <p class="grade-desc" data-i18n="grade_diamant_desc">Un engagement rare et précieux. Vous êtes un pilier de notre mission et votre impact touche des communautés entières.</p>
+                    </div>
+                    <div class="grade-toggle">
+                        <span>Voir les donateurs</span>
+                        <span class="grade-donor-count" data-count="Diamant">0</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="grade-donors">
+                        <div class="grade-donors-inner" data-list="Diamant"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card etoile" data-grade="Étoile">
+                    <div class="grade-card-header">
+                        <span class="grade-icon">⭐</span>
+                        <h3 class="grade-name">Étoile</h3>
+                        <p class="grade-desc" data-i18n="grade_etoile_desc">Les étoiles de HOUKABENIAN. Votre générosité exceptionnelle transforme structurellement la vie de milliers de personnes.</p>
+                    </div>
+                    <div class="grade-toggle">
+                        <span>Voir les donateurs</span>
+                        <span class="grade-donor-count" data-count="Étoile">0</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="grade-donors">
+                        <div class="grade-donors-inner" data-list="Étoile"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card or" data-grade="Or">
+                    <div class="grade-card-header">
+                        <span class="grade-icon">🥇</span>
+                        <h3 class="grade-name">Or</h3>
+                        <p class="grade-desc" data-i18n="grade_or_desc">Un donateur en or ! Votre générosité finance des campagnes entières de vaccination et des programmes de nutrition.</p>
+                    </div>
+                    <div class="grade-toggle">
+                        <span>Voir les donateurs</span>
+                        <span class="grade-donor-count" data-count="Or">0</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="grade-donors">
+                        <div class="grade-donors-inner" data-list="Or"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card argent" data-grade="Argent">
+                    <div class="grade-card-header">
+                        <span class="grade-icon">🥈</span>
+                        <h3 class="grade-name">Argent</h3>
+                        <p class="grade-desc" data-i18n="grade_argent_desc">Votre engagement prend de l'ampleur. Vous contribuez activement au suivi médical et à l'accompagnement de nos bénéficiaires.</p>
+                    </div>
+                    <div class="grade-toggle">
+                        <span>Voir les donateurs</span>
+                        <span class="grade-donor-count" data-count="Argent">0</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="grade-donors">
+                        <div class="grade-donors-inner" data-list="Argent"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card bronze" data-grade="Bronze">
+                    <div class="grade-card-header">
+                        <span class="grade-icon">🥉</span>
+                        <h3 class="grade-name">Bronze</h3>
+                        <p class="grade-desc" data-i18n="grade_bronze_desc">Le premier pas vers la solidarité. Chaque geste, même modeste, contribue à changer des vies. Merci pour votre soutien !</p>
+                    </div>
+                    <div class="grade-toggle">
+                        <span>Voir les donateurs</span>
+                        <span class="grade-donor-count" data-count="Bronze">0</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="grade-donors">
+                        <div class="grade-donors-inner" data-list="Bronze"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grades-how">
+                <h2 data-i18n="grades_how_title">Comment fonctionne le système de grades ?</h2>
+                <div class="how-steps">
+                    <div class="how-step">
+                        <div class="how-step-number">1</div>
+                        <h3 data-i18n="grades_step_1_title">Faites un don</h3>
+                        <p data-i18n="grades_step_1_text">Choisissez le montant qui vous convient et remplissez le formulaire de don sur notre site.</p>
+                    </div>
+                    <div class="how-step">
+                        <div class="how-step-number">2</div>
+                        <h3 data-i18n="grades_step_2_title">Recevez votre grade</h3>
+                        <p data-i18n="grades_step_2_text">Votre grade est automatiquement attribué en fonction du montant cumulé de vos dons.</p>
+                    </div>
+                    <div class="how-step">
+                        <div class="how-step-number">3</div>
+                        <h3 data-i18n="grades_step_3_title">Évoluez</h3>
+                        <p data-i18n="grades_step_3_text">Vos dons sont cumulatifs ! Si vous donnez à nouveau, votre grade évolue selon le total de vos contributions.</p>
+                    </div>
+                    <div class="how-step">
+                        <div class="how-step-number">4</div>
+                        <h3 data-i18n="grades_step_4_title">Soyez reconnu</h3>
+                        <p data-i18n="grades_step_4_text">Les donateurs sont affichés ici même, classés par grade. Votre nom apparaît automatiquement !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grades-cta">
+                <h2 data-i18n="grades_cta_title">Prêt(e) à faire la différence ?</h2>
+                <p data-i18n="grades_cta_text">Quel que soit le montant, votre don a un impact réel sur la vie des plus vulnérables.</p>
+                <a href="index.html#don" class="btn">
+                    <i class="fas fa-heart"></i> <span data-i18n="grades_cta_btn">Faire un don maintenant</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // === URL Google Apps Script (même que dans script.js) ===
+        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzCn6QrBORXWYdHTKbtAXSHK4I5A804-4nvQ-VKYQL-GeKvO_GC2EwUdIWqafpA9fFuFw/exec';
+
+        // === Données de démonstration ===
+        const DEMO_DATA = {
+            grades: {
+                'Platine': [
+                    { nom: 'Fondation Didier Drogba', total: 8000000, nbDons: 5 }
+                ],
+                'Diamant': [
+                    { nom: 'Entreprise SOLIBRA', total: 4500000, nbDons: 3 },
+                    { nom: 'Association AMISTAD', total: 3200000, nbDons: 4 }
+                ],
+                'Étoile': [
+                    { nom: 'Dr. Kouassi Bernard', total: 2000000, nbDons: 6 },
+                    { nom: 'Mme Bamba Fatoumata', total: 1500000, nbDons: 3 }
+                ],
+                'Or': [
+                    { nom: 'M. Ouattara Ibrahim', total: 750000, nbDons: 5 },
+                    { nom: 'M. Koné Lacina', total: 600000, nbDons: 4 },
+                    { nom: 'Mme Touré Aminata', total: 500000, nbDons: 3 }
+                ],
+                'Argent': [
+                    { nom: 'M. Yao Serge', total: 350000, nbDons: 3 },
+                    { nom: 'Mme Coulibaly Awa', total: 200000, nbDons: 2 },
+                    { nom: 'M. Diallo Mamadou', total: 150000, nbDons: 2 },
+                    { nom: 'Mme Traoré Mariam', total: 100000, nbDons: 1 }
+                ],
+                'Bronze': [
+                    { nom: 'M. Aka Jean-Pierre', total: 75000, nbDons: 2 },
+                    { nom: 'Mme Konan Adjoua', total: 50000, nbDons: 1 },
+                    { nom: 'M. N\'Guessan Yves', total: 25000, nbDons: 1 },
+                    { nom: 'Mme Koffi Marie', total: 10000, nbDons: 1 }
+                ]
+            },
+            totalDonateurs: 18,
+            totalDons: 44
+        };
+
+        let gradesData = null;
+        let isDemo = false;
+
+        // === Formatage montant en FCFA ===
+        function formatMontant(montant) {
+            return montant.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
+        }
+
+        // === Chargement des données ===
+        async function loadGradesData() {
+            // Afficher loading sur toutes les cartes
+            document.querySelectorAll('.grade-donors-inner').forEach(function(el) {
+                el.innerHTML = '<div class="donor-loading"><div class="spinner"></div><span>Chargement...</span></div>';
+            });
+
+            if (GOOGLE_SHEET_URL === 'VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI') {
+                // Mode démonstration (URL pas encore configurée)
+                isDemo = true;
+                gradesData = DEMO_DATA;
+                document.getElementById('configNotice').style.display = 'flex';
+                renderGrades();
+                return;
+            }
+
+            try {
+                var response = await fetch(GOOGLE_SHEET_URL);
+                var data = await response.json();
+                gradesData = data;
+                isDemo = false;
+                renderGrades();
+            } catch (error) {
+                console.error('Erreur chargement grades:', error);
+                // Fallback sur démo en cas d'erreur
+                isDemo = true;
+                gradesData = DEMO_DATA;
+                document.getElementById('configNotice').style.display = 'flex';
+                renderGrades();
+            }
+        }
+
+        // === Rendu des données dans les cartes ===
+        function renderGrades() {
+            if (!gradesData) return;
+
+            // Stats globales (calculer depuis les données si pas fourni)
+            var statsEl = document.getElementById('gradesStats');
+            var totalDonateurs = gradesData.totalDonateurs || (gradesData.donors ? gradesData.donors.length : 0);
+            var totalDons = gradesData.totalDons || 0;
+            if (!gradesData.totalDons && gradesData.donors) {
+                gradesData.donors.forEach(function(d) { totalDons += (d.count || d.nbDons || 1); });
+            }
+            document.getElementById('statDonateurs').textContent = totalDonateurs;
+            document.getElementById('statDons').textContent = totalDons;
+            statsEl.style.display = 'flex';
+
+            // Pour chaque grade
+            var gradeNames = ['Platine', 'Diamant', 'Étoile', 'Or', 'Argent', 'Bronze'];
+
+            gradeNames.forEach(function(gradeName) {
+                var donors = (gradesData.grades && gradesData.grades[gradeName]) || [];
+                var countEl = document.querySelector('[data-count="' + gradeName + '"]');
+                var listEl = document.querySelector('[data-list="' + gradeName + '"]');
+
+                // Mettre à jour le compteur
+                if (countEl) {
+                    countEl.textContent = donors.length;
+                }
+
+                // Construire la liste des donateurs
+                if (listEl) {
+                    if (donors.length === 0) {
+                        listEl.innerHTML = '<div class="donor-empty"><i class="fas fa-users"></i>Aucun donateur dans ce grade pour le moment.<br>Soyez le premier !</div>';
+                    } else {
+                        var html = '';
+                        donors.forEach(function(donor, index) {
+                            html += '<div class="donor-item">';
+                            html += '<div class="donor-rank">' + (index + 1) + '</div>';
+                            html += '<div class="donor-info">';
+                            html += '<div class="donor-name">' + escapeHtml(donor.nom) + '</div>';
+                            var donCount = donor.nbDons || donor.count || 1;
+                            html += '<div class="donor-dons">' + donCount + ' don' + (donCount > 1 ? 's' : '') + '</div>';
+                            html += '</div>';
+                            html += '</div>';
+                        });
+                        listEl.innerHTML = html;
+                    }
+                }
+            });
+        }
+
+        // === Sécurité : échappement HTML ===
+        function escapeHtml(text) {
+            if (!text) return '';
+            var div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // === Toggle grade cards ===
+        document.querySelectorAll('.grade-card').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                // Ne pas toggle si on clique sur un lien
+                if (e.target.closest('a')) return;
+
+                var wasActive = card.classList.contains('active');
+
+                // Fermer toutes les autres cartes
+                document.querySelectorAll('.grade-card.active').forEach(function(c) {
+                    c.classList.remove('active');
+                    c.querySelector('.grade-toggle span:first-child').textContent = 'Voir les donateurs';
+                });
+
+                // Toggle la carte cliquée
+                if (!wasActive) {
+                    card.classList.add('active');
+                    card.querySelector('.grade-toggle span:first-child').textContent = 'Masquer';
+
+                    // Scroll smooth vers la carte
+                    setTimeout(function() {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+                }
+            });
+        });
+
+        // === Lancement ===
+        loadGradesData();
+    });
+    </script>
+<script src="i18n.js?v=1"></script>
+</body>
+</html>

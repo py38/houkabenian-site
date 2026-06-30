@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOUKABENIAN — Aidons-les | Nourrice, Bébé, Senior</title>
+    <meta name="description" content="ONG HOUKABENIAN - Contribuer à la réduction du taux de mortalité mère-enfant, favoriser l'inclusion financière et briser l'isolement des seniors.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="images/logo.png" alt="HOUKABENIAN" class="loader-logo">
+        <p class="loader-text">HOUKABENIAN</p>
+    </div>
+
+    <!-- Flash Info Banner -->
+    <div class="flash-banner" id="flashBanner">
+        <div class="flash-badge"><i class="fas fa-bolt"></i> Flash Info</div>
+        <div class="flash-content">
+            <div class="flash-scroll">
+                <span data-i18n="flash_1">HOUKABENIAN : Plus de 10 ans au service des communautés vulnérables en Côte d'Ivoire</span>
+                <span class="flash-sep">|</span>
+                <span data-i18n="flash_2">Campagne de sensibilisation en cours dans les milieux défavorisés</span>
+                <span class="flash-sep">|</span>
+                <span data-i18n="flash_3">Rejoignez notre réseau de bénévoles et faites la différence !</span>
+            </div>
+        </div>
+        <button class="flash-close" onclick="document.getElementById('flashBanner').style.display='none'" aria-label="Fermer">&times;</button>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="HOUKABENIAN" width="52" height="52">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">HOUKABENIAN</span>
+                    <span class="logo-tagline">« Aidons-les »</span>
+                </div>
+            </a>
+
+            <nav class="nav" id="mainNav">
+                <a href="#mission" class="nav-link" data-i18n="nav_mission">Notre Mission</a>
+                <a href="#valeurs" class="nav-link" data-i18n="nav_valeurs">Valeurs</a>
+                <a href="#programmes" class="nav-link" data-i18n="nav_programmes">Programmes</a>
+                <a href="#raisons-benevole" class="nav-link" data-i18n="nav_benevolat">Bénévolat</a>
+                <a href="#activites" class="nav-link" data-i18n="nav_activites">Activités</a>
+                <a href="#actualites" class="nav-link" data-i18n="nav_actualites">Actualités</a>
+                <a href="#equipe" class="nav-link" data-i18n="nav_equipe">Équipe</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#don" class="btn btn-primary btn-sm" data-i18n="nav_faire_don">Faire un don</a>
+                <button class="lang-switch" title="Switch language">FR / EN</button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="#mission" class="mobile-nav-link" data-i18n="mob_mission">Notre Mission</a>
+            <a href="#valeurs" class="mobile-nav-link" data-i18n="mob_valeurs">Nos Valeurs</a>
+            <a href="#programmes" class="mobile-nav-link" data-i18n="mob_programmes">Programmes</a>
+            <a href="#raisons-benevole" class="mobile-nav-link" data-i18n="mob_benevolat">Bénévolat</a>
+            <a href="#activites" class="mobile-nav-link" data-i18n="mob_activites">Activités</a>
+            <a href="#actualites" class="mobile-nav-link" data-i18n="mob_actualites">Actualités</a>
+            <a href="#equipe" class="mobile-nav-link" data-i18n="mob_equipe">Équipe</a>
+            <div class="mobile-nav-cta">
+                <a href="#don" class="btn btn-primary" data-i18n="mob_don">Faire un don</a>
+                <a href="#benevolat" class="btn btn-outline-white" data-i18n="mob_benevole">Devenir Bénévole</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-image-overlay">
+                <img src="images/hero-groupe.jpg" alt="L'équipe HOUKABENIAN sur le terrain" class="hero-bg-image" loading="eager">
+            </div>
+            <div class="hero-particles" id="particles"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge" data-aos="fade-up">
+                    <span class="hero-badge-dot"></span>
+                    <span data-i18n="hero_badge">Plus de 10 ans d'engagement</span>
+                </div>
+                <div class="hero-org-name" data-aos="fade-up" data-aos-delay="50">HOUKABENIAN</div>
+                <h1 data-aos="fade-up" data-aos-delay="100">
+                    <span data-i18n="hero_ensemble">Ensemble,</span> <br>
+                    <span class="hero-rotating-wrapper">
+                        <span class="hero-rotating-text" id="heroRotatingText">
+                            <span class="hero-word active" data-i18n="hero_word_1">protégeons la vie</span>
+                            <span class="hero-word" data-i18n="hero_word_2">aidons les mères</span>
+                            <span class="hero-word" data-i18n="hero_word_3">sauvons les bébés</span>
+                            <span class="hero-word" data-i18n="hero_word_4">soutenons les aînés</span>
+                        </span>
+                    </span><br>
+                    <span data-i18n="hero_vulnerable">des plus vulnérables</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle" data-aos="fade-up" data-aos-delay="200">
+                    L'ONG HOUKABENIAN se donne pour mission de permettre à tous de vivre en bonne santé.
+                    Nous accompagnons les nourrices, les bébés et les seniors vers un avenir meilleur.
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#don" class="btn btn-primary btn-lg">
+                        <i class="fas fa-heart"></i> <span data-i18n="hero_btn_don">Donnez Maintenant</span>
+                    </a>
+                    <a href="#benevolat" class="btn btn-outline btn-lg">
+                        <i class="fas fa-hands-helping"></i> <span data-i18n="hero_btn_benevole">Devenir Bénévole</span>
+                    </a>
+                </div>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" data-count="10000">0</span>
+                        <span class="hero-stat-label" data-i18n="hero_stat_vies">Vies impactées</span>
+                    </div>
+                    <div class="hero-stat-sep"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" data-count="50">0</span>
+                        <span class="hero-stat-label" data-i18n="hero_stat_benevoles">Bénévoles</span>
+                    </div>
+                    <div class="hero-stat-sep"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" data-count="250">0</span>
+                        <span class="hero-stat-label" data-i18n="hero_stat_naissances">Naissances accompagnées</span>
+                    </div>
+                    <div class="hero-stat-sep"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" data-count="9500">0</span>
+                        <span class="hero-stat-label" data-i18n="hero_stat_seniors">Seniors accompagnés</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
+                <div class="hero-image-card">
+                    <img src="images/meres-bebes.jpg" alt="Mères et bébés accompagnés par HOUKABENIAN" class="hero-main-image">
+                    <div class="hero-image-badge hero-image-badge-1">
+                        <i class="fas fa-heart"></i>
+                        <span>Blatha</span>
+                    </div>
+                    <div class="hero-image-badge hero-image-badge-2">
+                        <i class="fas fa-baby"></i>
+                        <span>Boud'chou</span>
+                    </div>
+                    <div class="hero-image-badge hero-image-badge-3">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Kôrô</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span data-i18n="hero_scroll">Découvrir</span>
+        </div>
+    </section>
+
+    <!-- Notre Histoire & Vision -->
+    <section class="section section-histoire" id="histoire">
+        <div class="container">
+            <div class="histoire-layout" data-aos="fade-up">
+                <div class="histoire-image">
+                    <img src="images/historique-presidente.jpg" alt="Mme N'GUESSAN Akissi Madeleine, Présidente fondatrice" class="histoire-photo">
+                    <div class="histoire-image-caption">Mme N'GUESSAN Akissi Madeleine, Présidente</div>
+                </div>
+                <div class="histoire-content">
+                    <span class="section-tag" data-i18n="histoire_tag">Qui sommes-nous</span>
+                    <h2 class="section-title" ><span data-i18n="histoire_title_1">Notre </span><span class="gradient-text" data-i18n="histoire_title_2">Histoire</span></h2>
+                    <p data-i18n-html="histoire_p1">L'ONG <strong>HOUKABENIAN</strong> est une organisation non gouvernementale créée le <strong>25 janvier 2015</strong> qui œuvre pour le bien-être des seniors, les nourrices et des bébés par diverses actions sociales.</p>
+                    <p data-i18n-html="histoire_p2">L'ONG Houkabenian est présidée par <strong>Madame LOUCOU Madeleine</strong>.</p>
+                    <div class="histoire-vision">
+                        <div class="vision-icon"><i class="fas fa-eye"></i></div>
+                        <div>
+                            <h3 data-i18n="histoire_vision_title">Notre Vision</h3>
+                            <p data-i18n="histoire_vision_text">Favoriser un partenariat social de référence pour garantir le bien-être de nos cibles...</p>
+                        </div>
+                    </div>
+                    <div class="histoire-chiffres">
+                        <div class="chiffre-item">
+                            <span class="chiffre-number">10 000+</span>
+                            <span class="chiffre-label" data-i18n="histoire_chiffre_vies">Vies impactées</span>
+                        </div>
+                        <div class="chiffre-item">
+                            <span class="chiffre-number">250</span>
+                            <span class="chiffre-label" data-i18n="histoire_chiffre_meres">Mères soutenues</span>
+                        </div>
+                        <div class="chiffre-item">
+                            <span class="chiffre-number">9 500</span>
+                            <span class="chiffre-label" data-i18n="histoire_chiffre_seniors">Seniors accompagnés</span>
+                        </div>
+                        <div class="chiffre-item">
+                            <span class="chiffre-number">50</span>
+                            <span class="chiffre-label" data-i18n="histoire_chiffre_benevoles">Bénévoles actifs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section section-mission" id="mission">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="mission_tag">Ce qui nous anime</span>
+                <h2 class="section-title" ><span data-i18n="mission_title_1">Notre </span><span class="gradient-text" data-i18n="mission_title_2">Mission</span></h2>
+                <p class="section-subtitle" data-i18n="mission_subtitle">
+                    L'ONG HOUKABENIAN se donne pour mission de permettre à tous de vivre en bonne santé,
+                    en accompagnant les populations les plus vulnérables vers l'autonomie et la dignité.
+                </p>
+            </div>
+
+            <div class="mission-grid">
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="mission-card-icon" style="--accent: #E8572A">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 data-i18n="mission_card_1_title">Réduire la mortalité</h3>
+                    <p data-i18n="mission_card_1_text">Contribuer à la réduction du taux de mortalité de la mère et de l'enfant à la naissance par un accompagnement médical et humain.</p>
+                </div>
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mission-card-icon" style="--accent: #F7941D">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 data-i18n="mission_card_2_title">Inclusion financière</h3>
+                    <p data-i18n="mission_card_2_text">Favoriser l'indépendance et l'inclusion financière des femmes et des seniors pour une autonomie durable.</p>
+                </div>
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mission-card-icon" style="--accent: #00A79D">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3 data-i18n="mission_card_3_title">Accès aux soins</h3>
+                    <p data-i18n="mission_card_3_text">Favoriser l'accès aux soins de santé de qualité dans les milieux défavorisés pour améliorer les conditions de vie.</p>
+                </div>
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mission-card-icon" style="--accent: #8DC63F">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-i18n="mission_card_4_title">Briser l'isolement</h3>
+                    <p data-i18n="mission_card_4_text">Créer des cellules d'encadrement et d'échanges pour briser l'isolement des seniors et renforcer les liens sociaux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos Valeurs Section -->
+    <section class="section section-valeurs" id="valeurs">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="valeurs_tag">Ce qui nous guide</span>
+                <h2 class="section-title" ><span data-i18n="valeurs_title_1">Nos </span><span class="gradient-text" data-i18n="valeurs_title_2">Valeurs</span></h2>
+                <p class="section-subtitle" data-i18n="valeurs_subtitle">Cinq valeurs fondamentales guident chacune de nos actions au quotidien.</p>
+            </div>
+
+            <div class="valeurs-grid">
+                <a href="articles/valeur-accueil-chaleureux.html" class="valeur-card valeur-card-image" data-aos="fade-up" data-aos-delay="0">
+                    <div class="valeur-img"><img src="images/raisons/raison-02.jpg" alt="Accueil Chaleureux" loading="lazy"></div>
+                    <div class="valeur-body">
+                        <div class="valeur-icon" style="background: linear-gradient(135deg, #F7941D, #E8572A);">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 data-i18n="valeur_accueil_title">Accueil Chaleureux</h3>
+                        <p data-i18n="valeur_accueil_text">La première rencontre est toujours déterminante. Regarder le parent comme étant unique, s'enquérir de ses besoins.</p>
+                        <span class="valeur-link" data-i18n="valeur_link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/valeur-entraide.html" class="valeur-card valeur-card-image" data-aos="fade-up" data-aos-delay="100">
+                    <div class="valeur-img"><img src="images/raisons/raison-04.jpg" alt="Entraide" loading="lazy"></div>
+                    <div class="valeur-body">
+                        <div class="valeur-icon" style="background: linear-gradient(135deg, #00A79D, #8DC63F);">
+                            <i class="fas fa-people-carry"></i>
+                        </div>
+                        <h3 data-i18n="valeur_entraide_title">Entraide</h3>
+                        <p data-i18n="valeur_entraide_text">On apprend à être parent parmi d'autres parents. Nos activités favorisent le partage d'expériences et la création de liens.</p>
+                        <span class="valeur-link" data-i18n="valeur_link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/valeur-respect.html" class="valeur-card valeur-card-image" data-aos="fade-up" data-aos-delay="200">
+                    <div class="valeur-img"><img src="images/raisons/raison-07.jpg" alt="Respect" loading="lazy"></div>
+                    <div class="valeur-body">
+                        <div class="valeur-icon" style="background: linear-gradient(135deg, #1B3A5C, #00A79D);">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 data-i18n="valeur_respect_title">Respect</h3>
+                        <p data-i18n="valeur_respect_text">Traiter chaque personne avec égard, accepter les différences et laisser au parent sa pleine valeur de parent.</p>
+                        <span class="valeur-link" data-i18n="valeur_link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/valeur-empathie.html" class="valeur-card valeur-card-image" data-aos="fade-up" data-aos-delay="300">
+                    <div class="valeur-img"><img src="images/raisons/raison-05.jpg" alt="Empathie" loading="lazy"></div>
+                    <div class="valeur-body">
+                        <div class="valeur-icon" style="background: linear-gradient(135deg, #E8572A, #F7941D);">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 data-i18n="valeur_empathie_title">Empathie</h3>
+                        <p data-i18n="valeur_empathie_text">La faculté de se mettre à la place d'autrui. Les parents doivent savoir que l'on comprend ce qu'ils vivent.</p>
+                        <span class="valeur-link" data-i18n="valeur_link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/valeur-egalite.html" class="valeur-card valeur-card-image" data-aos="fade-up" data-aos-delay="400">
+                    <div class="valeur-img"><img src="images/raisons/raison-06.jpg" alt="Égalité" loading="lazy"></div>
+                    <div class="valeur-body">
+                        <div class="valeur-icon" style="background: linear-gradient(135deg, #8DC63F, #F7941D);">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 data-i18n="valeur_egalite_title">Égalité</h3>
+                        <p data-i18n="valeur_egalite_text">Tous les parents reçoivent les mêmes marques d'estime, la même attention, peu importe leur statut ou origine.</p>
+                        <span class="valeur-link" data-i18n="valeur_link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programmes Section -->
+    <section class="section section-programmes" id="programmes">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="programmes_tag">Nos actions</span>
+                <h2 class="section-title" ><span data-i18n="programmes_title_1">Nos </span><span class="gradient-text" data-i18n="programmes_title_2">Programmes</span></h2>
+                <p class="section-subtitle" data-i18n="programmes_subtitle">Trois piliers d'action pour accompagner les plus vulnérables à chaque étape de la vie.</p>
+            </div>
+
+            <div class="programmes-grid">
+                <div class="programme-card programme-koro" data-aos="fade-up" data-aos-delay="0">
+                    <div class="programme-visual">
+                        <img src="https://images.unsplash.com/photo-1736896165046-5df757614776?w=600&q=80" alt="Senior africain" class="programme-bg-image">
+                        <div class="programme-visual-overlay"></div>
+                        <div class="programme-icon-wrap">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="programme-number">01</div>
+                    </div>
+                    <div class="programme-content">
+                        <h3 class="programme-name">Kôrô</h3>
+                        <p class="programme-meaning" data-i18n="prog_koro_meaning">« L'ancien, le sage »</p>
+                        <p class="programme-desc" data-i18n="prog_koro_desc">Accompagnement des personnes âgées : lutte contre l'isolement, accès aux soins, activités sociales et soutien au quotidien. Parce que nos aînés méritent de vivre leurs dernières années dans la dignité et la joie.</p>
+                        <ul class="programme-features">
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_koro_1">Visites à domicile régulières</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_koro_2">Accès aux soins médicaux</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_koro_3">Activités sociales et récréatives</span></li>
+                        </ul>
+                        <!-- Lien à activer quand les pages programmes seront créées -->
+                    </div>
+                </div>
+
+                <div class="programme-card programme-blatha" data-aos="fade-up" data-aos-delay="150">
+                    <div class="programme-visual">
+                        <img src="https://images.unsplash.com/photo-1504888060547-83cbe78ccfe0?w=600&q=80" alt="Mère africaine avec bébé" class="programme-bg-image">
+                        <div class="programme-visual-overlay"></div>
+                        <div class="programme-icon-wrap">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="programme-number">02</div>
+                    </div>
+                    <div class="programme-content">
+                        <h3 class="programme-name">Blatha</h3>
+                        <p class="programme-meaning" data-i18n="prog_blatha_meaning">« La mère nourricière »</p>
+                        <p class="programme-desc" data-i18n="prog_blatha_desc">Accompagnement des femmes enceintes et des nourrices : suivi prénatal et postnatal, sensibilisation, autonomisation financière. Pour que chaque mère puisse donner le meilleur à son enfant.</p>
+                        <ul class="programme-features">
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_blatha_1">Suivi prénatal et postnatal</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_blatha_2">Formations en autonomie financière</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_blatha_3">Groupes de soutien entre mères</span></li>
+                        </ul>
+                        <!-- Lien à activer quand les pages programmes seront créées -->
+                    </div>
+                </div>
+
+                <div class="programme-card programme-boudchou" data-aos="fade-up" data-aos-delay="300">
+                    <div class="programme-visual">
+                        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80" alt="Bébé africain souriant" class="programme-bg-image">
+                        <div class="programme-visual-overlay"></div>
+                        <div class="programme-icon-wrap">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <div class="programme-number">03</div>
+                    </div>
+                    <div class="programme-content">
+                        <h3 class="programme-name">Boud'chou</h3>
+                        <p class="programme-meaning" data-i18n="prog_boudchou_meaning">« Le tout-petit »</p>
+                        <p class="programme-desc" data-i18n="prog_boudchou_desc">Protection et suivi des nouveau-nés et nourrissons : vaccination, nutrition, suivi de croissance. Chaque enfant mérite de naître et de grandir dans les meilleures conditions.</p>
+                        <ul class="programme-features">
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_boudchou_1">Campagnes de vaccination</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_boudchou_2">Suivi nutritionnel</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="prog_boudchou_3">Éducation parentale</span></li>
+                        </ul>
+                        <!-- Lien à activer quand les pages programmes seront créées -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10 Raisons de devenir bénévole -->
+    <section class="section section-raisons" id="raisons-benevole">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="raisons_tag">Rejoignez-nous</span>
+                <h2 class="section-title"><span data-i18n="raisons_title_1">10 Raisons de devenir </span><span class="gradient-text" data-i18n="raisons_title_2">Bénévole</span></h2>
+                <p class="section-subtitle" data-i18n="raisons_subtitle">
+                    Nos bénévoles sont une source d'inspiration. Découvrez pourquoi rejoindre la famille HOUKABENIAN.
+                </p>
+            </div>
+
+            <div class="raisons-grid">
+                <a href="articles/raison-sante.html" class="raison-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="raison-image"><img src="images/raisons/raison-01.jpg" alt="C'est bon pour la santé" loading="lazy"></div>
+                    <div class="raison-number">01</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_01_title">C'est bon pour la santé</h3>
+                        <p data-i18n="raison_01_text">94 % des bénévoles mentionnent que ça améliore leur humeur. 2 à 3 heures par semaine améliorent les capacités physiques et mentales.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-grande-famille.html" class="raison-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="raison-image"><img src="images/raisons/raison-02.jpg" alt="Grande famille" loading="lazy"></div>
+                    <div class="raison-number">02</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_02_title">Pour faire partie de la grande famille</h3>
+                        <p data-i18n="raison_02_text">Depuis 3 ans, nos bénévoles contribuent dans le plaisir à cette oeuvre de solidarité. Une ambiance chaleureuse et festive vous attend.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-comprehensibles.html" class="raison-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="raison-image"><img src="images/raisons/raison-03.jpg" alt="Compréhensifs" loading="lazy"></div>
+                    <div class="raison-number">03</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_03_title">Parce que nous sommes compréhensifs</h3>
+                        <p data-i18n="raison_03_text">Nous savons que votre temps est précieux. Nous respectons le temps que vous avez à donner et les limites que vous exprimez.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-grands-moments.html" class="raison-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="raison-image"><img src="images/raisons/raison-04.jpg" alt="Grands moments" loading="lazy"></div>
+                    <div class="raison-number">04</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_04_title">Pour vivre de grands moments</h3>
+                        <p data-i18n="raison_04_text">Célébrer la beauté de la vie et offrir amitié, tendresse et réconfort. Des moments qui procurent plus de bonheur à celui qui les donne.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-impact-direct.html" class="raison-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="raison-image"><img src="images/raisons/raison-05.jpg" alt="Impact direct" loading="lazy"></div>
+                    <div class="raison-number">05</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_05_title">Un impact direct sur la vie des personnes âgées</h3>
+                        <p data-i18n="raison_05_text">Briser l'isolement, une personne à la fois, avec un sourire, une écoute paisible. Il n'y a pas plus sincère qu'un aîné qui dit « merci ».</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-societe-equilibree.html" class="raison-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="raison-image"><img src="images/raisons/raison-06.jpg" alt="Société équilibrée" loading="lazy"></div>
+                    <div class="raison-number">06</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_06_title">Contribuer à une société plus équilibrée</h3>
+                        <p data-i18n="raison_06_text">Le secteur caritatif est un pilier de la société. HOUKABENIAN dépend de ses bénévoles pour mener sa mission à bien.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-intergenerationnel.html" class="raison-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="raison-image"><img src="images/raisons/raison-07.jpg" alt="Intergénérationnel" loading="lazy"></div>
+                    <div class="raison-number">07</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_07_title">Vivre une expérience intergénérationnelle</h3>
+                        <p data-i18n="raison_07_text">Des bénévoles de tous âges et de toutes générations. Cette mixité générationnelle s'harmonise naturellement avec nos aînés.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-rencontres.html" class="raison-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="raison-image"><img src="images/raisons/raison-08.jpg" alt="Rencontres" loading="lazy"></div>
+                    <div class="raison-number">08</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_08_title">Rencontrer des personnes actives et généreuses</h3>
+                        <p data-i18n="raison_08_text">Nos bénévoles retirent de nombreux bienfaits : sentiment d'appartenance, liens sociaux, perfectionnement des compétences.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-bien-etre-parents.html" class="raison-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="raison-image"><img src="images/raisons/raison-09.jpg" alt="Bien-être parents" loading="lazy"></div>
+                    <div class="raison-number">09</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_09_title">Participer au bien-être des nouveaux parents</h3>
+                        <p data-i18n="raison_09_text">Porter intérêt envers les bébés, les enfants et les parents. Alléger l'apprentissage des nouveaux parents.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="articles/raison-developpement-personnel.html" class="raison-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="raison-image"><img src="images/raisons/raison-10.jpg" alt="Développement personnel" loading="lazy"></div>
+                    <div class="raison-number">10</div>
+                    <div class="raison-content">
+                        <h3 data-i18n="raison_10_title">Pour un développement personnel accompli</h3>
+                        <p data-i18n="raison_10_text">Connaissance de soi, valorisation, ouverture aux autres, acquisition de nouvelles compétences et responsabilités.</p>
+                        <span class="valeur-link" data-i18n="raison_link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+                <a href="#benevolat" class="btn btn-primary btn-lg">
+                    <i class="fas fa-hands-helping"></i> <span data-i18n="raisons_btn">Devenir Bénévole</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact / Counter Section -->
+    <section class="section section-impact" id="impact">
+        <div class="impact-bg"></div>
+        <div class="container">
+            <div class="section-header section-header-light" data-aos="fade-up">
+                <span class="section-tag section-tag-light" data-i18n="impact_tag">Nos résultats</span>
+                <h2 class="section-title" ><span data-i18n="impact_title_1">Notre </span><span class="text-white" data-i18n="impact_title_2">Impact</span></h2>
+                <p class="section-subtitle section-subtitle-light" data-i18n="impact_subtitle">Chaque jour, nous faisons la différence dans la vie de milliers de personnes.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="impact-icon"><i class="fas fa-baby-carriage"></i></div>
+                    <div class="impact-number" data-count="250">0</div>
+                    <div class="impact-plus">+</div>
+                    <div class="impact-label" data-i18n="impact_naissances">Naissances accompagnées</div>
+                </div>
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="impact-icon"><i class="fas fa-female"></i></div>
+                    <div class="impact-number" data-count="250">0</div>
+                    <div class="impact-plus">+</div>
+                    <div class="impact-label" data-i18n="impact_meres">Mères soutenues</div>
+                </div>
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="impact-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="impact-number" data-count="9500">0</div>
+                    <div class="impact-plus">+</div>
+                    <div class="impact-label" data-i18n="impact_seniors">Seniors accompagnés</div>
+                </div>
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="impact-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="impact-number" data-count="50">0</div>
+                    <div class="impact-plus">+</div>
+                    <div class="impact-label" data-i18n="impact_benevoles">Bénévoles engagés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section section-equipe" id="equipe">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="equipe_tag">Les visages de l'action</span>
+                <h2 class="section-title" ><span data-i18n="equipe_title_1">Notre </span><span class="gradient-text" data-i18n="equipe_title_2">Équipe</span></h2>
+                <p class="section-subtitle" data-i18n="equipe_subtitle">Des femmes et des hommes dévoués qui donnent le meilleur d'eux-mêmes pour les plus vulnérables.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Conseil d'Administration -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="team-avatar">
+                        <img src="images/equipe/presidente-1.jpg" alt="Mme N'GUESSAN Akissi Madeleine" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Mme N'GUESSAN Akissi Madeleine</h4>
+                    <p class="team-role" data-i18n="equipe_role_presidente">Présidente du Conseil d'Administration</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="team-avatar">
+                        <img src="images/equipe/vice-presidente.jpg" alt="Sœur NIANGORAN Archange Michèle" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Sœur NIANGORAN Archange Michèle</h4>
+                    <p class="team-role" data-i18n="equipe_role_vp">Vice-Présidente du CA</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-avatar">
+                        <img src="images/equipe/secretaire-general.jpg" alt="YOBOUET Lasme Alexandre-Marie" class="team-photo">
+                    </div>
+                    <h4 class="team-name">YOBOUET Lasme Alexandre-Marie</h4>
+                    <p class="team-role" data-i18n="equipe_role_sg">Secrétaire Général</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="team-avatar">
+                        <img src="images/equipe/secretaire-executif.jpg" alt="LOUCOU Antoine Koffi" class="team-photo">
+                    </div>
+                    <h4 class="team-name">LOUCOU Antoine Koffi</h4>
+                    <p class="team-role" data-i18n="equipe_role_se">Secrétaire Exécutif</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-avatar">
+                        <img src="images/equipe/conseiller-medical.jpg" alt="Dr N'DA Koffi Denis" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Dr N'DA Koffi Denis</h4>
+                    <p class="team-role" data-i18n="equipe_role_cm">Conseiller Médical</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="team-avatar">
+                        <img src="images/equipe/conseillere-medicale.jpg" alt="Dr LOUCOU Nora Reine" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Dr LOUCOU Nora Reine</h4>
+                    <p class="team-role" data-i18n="equipe_role_cmf">Conseillère Médicale</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-avatar">
+                        <img src="images/equipe/sandrine-loucou.jpg" alt="Sandrine LOUCOU" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Sandrine LOUCOU</h4>
+                    <p class="team-role" data-i18n="equipe_role_cai">Conseillère des Affaires Internationales</p>
+                </div>
+                <!-- Direction Exécutive -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="team-avatar">
+                        <img src="images/equipe/directrice-executive.jpg" alt="Mme BAKAYOKO Rokia" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Mme BAKAYOKO Rokia</h4>
+                    <p class="team-role" data-i18n="equipe_role_de">Directrice Exécutive</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-avatar">
+                        <img src="images/equipe/drh-konan.jpg" alt="KONAN Koffi Geoffroy" class="team-photo">
+                    </div>
+                    <h4 class="team-name">KONAN Koffi Geoffroy</h4>
+                    <p class="team-role" data-i18n="equipe_role_drh">Directeur des Ressources Humaines</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activités à venir -->
+    <section class="section section-activites" id="activites">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="activites_tag">Prochainement</span>
+                <h2 class="section-title"><span data-i18n="activites_title_1">Activités </span><span class="gradient-text" data-i18n="activites_title_2">à venir</span></h2>
+                <p class="section-subtitle" data-i18n="activites_subtitle">Découvrez nos prochains événements et inscrivez-vous pour y participer.</p>
+            </div>
+
+            <div class="activites-grid">
+                <div class="activite-card" data-aos="fade-up" data-aos-delay="0"
+                     data-activite="Journée de solidarité intergénérationnelle"
+                     data-date="15 Juillet 2026"
+                     data-lieu="Abidjan, Cocody"
+                     data-places="50"
+                     data-programme="Kôrô"
+                     data-description="Une journée complète d'activités réunissant jeunes bénévoles et aînés autour de jeux, d'échanges et d'un repas convivial. Au programme : jeux de société, contes et récits de vie, atelier cuisine traditionnelle, séance de gymnastique douce et repas partagé. Venez vivre un moment de partage intergénérationnel unique !">
+                    <div class="activite-date-bar">
+                        <div class="activite-date">
+                            <span class="activite-jour">15</span>
+                            <span class="activite-mois">JUIL</span>
+                        </div>
+                        <span class="activite-type">Kôrô</span>
+                    </div>
+                    <div class="activite-body">
+                        <h3 data-i18n="activite_1_title">Journée de solidarité intergénérationnelle</h3>
+                        <p data-i18n="activite_1_desc">Une journée d'activités réunissant jeunes bénévoles et aînés autour de jeux, d'échanges et d'un repas convivial.</p>
+                        <div class="activite-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Abidjan, Cocody</span>
+                            <span><i class="fas fa-users"></i> 50 <span data-i18n="activite_places">places</span></span>
+                        </div>
+                        <div class="activite-buttons">
+                            <button class="btn btn-outline btn-sm activite-detail-btn" data-i18n="activite_plus">Plus d'infos</button>
+                            <button class="btn btn-primary btn-sm activite-inscrire-btn" data-i18n="activite_participer">Participer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activite-card" data-aos="fade-up" data-aos-delay="100"
+                     data-activite="Atelier de préparation à l'accouchement"
+                     data-date="22 Juillet 2026"
+                     data-lieu="Abidjan, Yopougon"
+                     data-places="30"
+                     data-programme="Blatha"
+                     data-description="Atelier dédié aux futures mamans pour mieux connaître les besoins et les réalités vécues par les futurs et nouveaux parents. Sujets abordés : préparation physique et mentale, allaitement, nutrition pendant la grossesse, gestion du stress, échanges entre futures mamans. Animé par des professionnels de santé et des mamans expérimentées.">
+                    <div class="activite-date-bar">
+                        <div class="activite-date">
+                            <span class="activite-jour">22</span>
+                            <span class="activite-mois">JUIL</span>
+                        </div>
+                        <span class="activite-type">Blatha</span>
+                    </div>
+                    <div class="activite-body">
+                        <h3 data-i18n="activite_2_title">Atelier de préparation à l'accouchement</h3>
+                        <p data-i18n="activite_2_desc">Atelier dédié aux futures mamans pour mieux connaître les besoins et les réalités vécues par les nouveaux parents.</p>
+                        <div class="activite-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Abidjan, Yopougon</span>
+                            <span><i class="fas fa-users"></i> 30 <span data-i18n="activite_places">places</span></span>
+                        </div>
+                        <div class="activite-buttons">
+                            <button class="btn btn-outline btn-sm activite-detail-btn" data-i18n="activite_plus">Plus d'infos</button>
+                            <button class="btn btn-primary btn-sm activite-inscrire-btn" data-i18n="activite_participer">Participer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activite-card" data-aos="fade-up" data-aos-delay="200"
+                     data-activite="Campagne de vaccination infantile"
+                     data-date="5 Août 2026"
+                     data-lieu="Abidjan, Abobo"
+                     data-places="Ouvert à tous"
+                     data-programme="Boud'chou"
+                     data-description="Campagne de vaccination gratuite pour les enfants de 0 à 5 ans dans les quartiers défavorisés. Vaccins disponibles : rougeole, polio, tétanos, hépatite B, méningite. Des professionnels de santé seront présents pour assurer le suivi et répondre aux questions des parents. Pensez à amener le carnet de santé de votre enfant.">
+                    <div class="activite-date-bar">
+                        <div class="activite-date">
+                            <span class="activite-jour">05</span>
+                            <span class="activite-mois">AOÛT</span>
+                        </div>
+                        <span class="activite-type">Boud'chou</span>
+                    </div>
+                    <div class="activite-body">
+                        <h3 data-i18n="activite_3_title">Campagne de vaccination infantile</h3>
+                        <p data-i18n="activite_3_desc">Campagne de vaccination gratuite pour les enfants de 0 à 5 ans dans les quartiers défavorisés.</p>
+                        <div class="activite-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Abidjan, Abobo</span>
+                            <span><i class="fas fa-users"></i> <span data-i18n="activite_ouvert">Ouvert à tous</span></span>
+                        </div>
+                        <div class="activite-buttons">
+                            <button class="btn btn-outline btn-sm activite-detail-btn" data-i18n="activite_plus">Plus d'infos</button>
+                            <button class="btn btn-primary btn-sm activite-inscrire-btn" data-i18n="activite_participer">Participer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actualités Section -->
+    <section class="section section-actualites" id="actualites">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="actualites_tag">Restez informés</span>
+                <h2 class="section-title" ><span data-i18n="actualites_title_1">Nos </span><span class="gradient-text" data-i18n="actualites_title_2">Actualités</span></h2>
+                <p class="section-subtitle" data-i18n="actualites_subtitle">Suivez nos dernières actions, événements et campagnes sur le terrain.</p>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-card news-card-featured" data-aos="fade-up" data-aos-delay="0">
+                    <div class="news-image">
+                        <div class="news-image-placeholder">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <span class="news-tag" data-i18n="actu_1_tag">Santé</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar"></i> 15 Mai 2026</span>
+                            <span><i class="far fa-clock"></i> 3 min</span>
+                        </div>
+                        <h3 data-i18n="actu_1_title">Campagne de vaccination dans les zones rurales</h3>
+                        <p data-i18n="actu_1_text">Notre équipe a mené une campagne de vaccination couvrant 12 villages, touchant plus de 800 enfants de moins de 5 ans.</p>
+                        <a href="articles/campagne-vaccination-zones-rurales.html" class="news-link" data-i18n="actu_lire">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-image">
+                        <div class="news-image-placeholder">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <span class="news-tag" data-i18n="actu_2_tag">Formation</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar"></i> 02 Avril 2026</span>
+                        </div>
+                        <h3 data-i18n="actu_2_title">Formation en inclusion financière pour 200 femmes</h3>
+                        <p data-i18n="actu_2_text">Un atelier de formation dédié à l'autonomisation financière des mères et nourrices.</p>
+                        <a href="#" class="news-link" data-i18n="actu_lire">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-image">
+                        <div class="news-image-placeholder">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <span class="news-tag" data-i18n="actu_3_tag">Solidarité</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar"></i> 18 Mars 2026</span>
+                        </div>
+                        <h3 data-i18n="actu_3_title">Journée de solidarité avec nos aînés</h3>
+                        <p data-i18n="actu_3_text">Plus de 50 bénévoles ont participé à une journée d'activités sociales pour les seniors.</p>
+                        <a href="#" class="news-link" data-i18n="actu_lire">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="news-image">
+                        <div class="news-image-placeholder">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <span class="news-tag">Boud'chou</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar"></i> 05 Fév 2026</span>
+                        </div>
+                        <h3 data-i18n="actu_4_title">Suivi nutritionnel : 300 nourrissons pris en charge</h3>
+                        <p data-i18n="actu_4_text">Un programme intensif de suivi nutritionnel pour les nouveau-nés en zones défavorisées.</p>
+                        <a href="#" class="news-link" data-i18n="actu_lire">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section class="section section-temoignages" id="temoignages">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="temoignages_tag">Ils témoignent</span>
+                <h2 class="section-title" ><span data-i18n="temoignages_title_1">Leurs </span><span class="gradient-text" data-i18n="temoignages_title_2">Témoignages</span></h2>
+                <p class="section-subtitle" data-i18n="temoignages_subtitle">Les voix de ceux dont la vie a été transformée par nos actions.</p>
+            </div>
+
+            <div class="testimonials-slider" id="testimonialSlider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text" data-i18n="temoignage_1_text">Si vieillir permet d'apprécier la vie et de ralentir le rythme, c'est aussi accepter d'accumuler les épreuves et perdre peu à peu ses capacités. Mais j'ai encore beaucoup de mémoire et j'aime la vie. Grâce à HOUKABENIAN, je ne suis plus seul.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <h4>Mamadou K.</h4>
+                                <p data-i18n="temoignage_1_role">Bénéficiaire programme Kôrô</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text" data-i18n="temoignage_2_text">Grâce au programme Blatha, j'ai pu être suivie pendant toute ma grossesse. Mon bébé est né en bonne santé et aujourd'hui, je participe aux formations d'autonomie financière. HOUKABENIAN a changé ma vie.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <h4>Aminata D.</h4>
+                                <p data-i18n="temoignage_2_role">Bénéficiaire programme Blatha</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text" data-i18n="temoignage_3_text">Mon enfant avait des problèmes de nutrition. L'équipe de Boud'chou nous a pris en charge, nous a formés et aujourd'hui mon fils grandit normalement. Je remercie tous les bénévoles.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <h4>Fatoumata S.</h4>
+                                <p data-i18n="temoignage_3_role">Bénéficiaire programme Boud'chou</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn testimonial-prev" id="prevTestimonial"><i class="fas fa-arrow-left"></i></button>
+                    <div class="testimonial-dots" id="testimonialDots"></div>
+                    <button class="testimonial-btn testimonial-next" id="nextTestimonial"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires Section -->
+    <section class="section section-partenaires" id="partenaires">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" data-i18n="partenaires_tag">Ensemble plus forts</span>
+                <h2 class="section-title" ><span data-i18n="partenaires_title_1">Nos </span><span class="gradient-text" data-i18n="partenaires_title_2">Partenaires</span></h2>
+                <p class="section-subtitle" data-i18n="partenaires_subtitle">Ils nous font confiance et soutiennent notre mission au quotidien.</p>
+            </div>
+
+            <div class="partenaires-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="partenaire-card">
+                    <img src="images/partenaires/ministere-sante.png" alt="Ministère de la Santé" class="partenaire-logo">
+                    <p class="partenaire-name">Ministère de la Santé</p>
+                </div>
+                <div class="partenaire-card">
+                    <img src="images/partenaires/cgrae.jpg" alt="CGRAE - Caisse Générale de Retraite" class="partenaire-logo">
+                    <p class="partenaire-name">CGRAE</p>
+                </div>
+                <div class="partenaire-card">
+                    <img src="images/partenaires/cnps.jpg" alt="CNPS" class="partenaire-logo">
+                    <p class="partenaire-name">CNPS</p>
+                </div>
+                <div class="partenaire-card">
+                    <img src="images/partenaires/meps.png" alt="MEPS" class="partenaire-logo">
+                    <p class="partenaire-name">MEPS</p>
+                </div>
+                <div class="partenaire-card">
+                    <img src="images/partenaires/volontariat-medical.jpg" alt="Volontariat Médical" class="partenaire-logo">
+                    <p class="partenaire-name">Volontariat Médical</p>
+                </div>
+                <div class="partenaire-card">
+                    <img src="images/partenaires/ecothik.jpg" alt="ECOTHIK" class="partenaire-logo">
+                    <p class="partenaire-name">ECOTHIK</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Don Section -->
+    <section class="section section-cta" id="don">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="don-layout" data-aos="fade-up">
+                <div class="don-text">
+                    <h2><span data-i18n="don_title_1">Chaque geste compte.</span><br><span class="text-white" data-i18n="don_title_2">Agissez maintenant.</span></h2>
+                    <p data-i18n="don_subtitle">Votre don permet de sauver des vies, d'accompagner des mères et de protéger nos aînés. Ensemble, nous pouvons faire la différence.</p>
+                    <div class="don-impact-list">
+                        <div class="don-impact-item">
+                            <div class="don-impact-icon"><i class="fas fa-syringe"></i></div>
+                            <div>
+                                <strong>5 000 FCFA</strong>
+                                <span data-i18n="don_impact_1_label">Vaccin pour un enfant</span>
+                            </div>
+                        </div>
+                        <div class="don-impact-item">
+                            <div class="don-impact-icon"><i class="fas fa-stethoscope"></i></div>
+                            <div>
+                                <strong>15 000 FCFA</strong>
+                                <span data-i18n="don_impact_2_label">Suivi prénatal d'une mère</span>
+                            </div>
+                        </div>
+                        <div class="don-impact-item">
+                            <div class="don-impact-icon"><i class="fas fa-home"></i></div>
+                            <div>
+                                <strong>25 000 FCFA</strong>
+                                <span data-i18n="don_impact_3_label">1 mois de soutien à un senior</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-outline-white btn-lg" id="benevolat"><i class="fas fa-hand-paper"></i> <span data-i18n="don_btn_benevole">Devenir Bénévole</span></a>
+                        <a href="#" class="btn btn-outline-white btn-lg"><i class="fas fa-users"></i> <span data-i18n="don_btn_rejoindre">Nous Rejoindre</span></a>
+                    </div>
+                </div>
+                <div class="don-form-card">
+                    <div class="don-form-header">
+                        <i class="fas fa-heart"></i>
+                        <h3 data-i18n="don_form_title">Faire un don</h3>
+                        <p data-i18n="don_form_subtitle">Choisissez un montant ou entrez le vôtre</p>
+                    </div>
+                    <form class="don-form" id="donForm">
+                        <div class="don-amounts">
+                            <button type="button" class="don-amount" data-amount="5000">5 000</button>
+                            <button type="button" class="don-amount" data-amount="10000">10 000</button>
+                            <button type="button" class="don-amount active" data-amount="25000">25 000</button>
+                            <button type="button" class="don-amount" data-amount="50000">50 000</button>
+                        </div>
+                        <div class="don-custom">
+                            <label for="customAmount" data-i18n="don_autre_montant">Autre montant (FCFA)</label>
+                            <input type="number" id="customAmount" name="montant_custom" placeholder="Montant libre..." data-i18n-placeholder="don_montant_libre" min="100">
+                        </div>
+                        <div class="don-frequency">
+                            <button type="button" class="don-freq active" data-freq="once" data-i18n="don_unique">Don unique</button>
+                            <button type="button" class="don-freq" data-freq="monthly" data-i18n="don_mensuel">Mensuel</button>
+                        </div>
+                        <div class="don-fields">
+                            <input type="text" name="nom" placeholder="Nom complet" data-i18n-placeholder="don_nom_placeholder" required>
+                            <input type="email" name="email" placeholder="Adresse email" data-i18n-placeholder="don_email_placeholder" required>
+                            <input type="tel" name="telephone" placeholder="Téléphone (optionnel)" data-i18n-placeholder="don_tel_placeholder">
+                        </div>
+                        <div class="don-anonyme">
+                            <label class="don-anonyme-label">
+                                <input type="checkbox" name="anonyme" id="donAnonyme">
+                                <span class="don-anonyme-check"><i class="fas fa-user-secret"></i></span>
+                                <span><span data-i18n="don_anonyme">Faire un don anonyme </span><small data-i18n="don_anonyme_small">(votre nom n'apparaîtra pas publiquement)</small></span>
+                            </label>
+                        </div>
+                        <div class="don-programme-choice">
+                            <label data-i18n="don_affecter">Affecter mon don à :</label>
+                            <select name="programme">
+                                <option value="Là où c'est le plus nécessaire">Là où c'est le plus nécessaire</option>
+                                <option value="Programme Kôrô (Seniors)">Programme Kôrô (Seniors)</option>
+                                <option value="Programme Blatha (Mères)">Programme Blatha (Mères)</option>
+                                <option value="Programme Boud'chou (Enfants)">Programme Boud'chou (Enfants)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg don-submit">
+                            <i class="fas fa-heart"></i> Donner 25 000 FCFA
+                        </button>
+                        <p class="don-secure" data-i18n="don_secure"><i class="fas fa-lock"></i> Vos données sont protégées</p>
+                        <a href="grades.html" class="don-grades-link" data-i18n="don_grades_link"><i class="fas fa-award"></i> Découvrir les grades de donateurs</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="HOUKABENIAN" width="44" height="44">
+                        <span>HOUKABENIAN</span>
+                    </div>
+                    <p data-i18n="footer_about">« Aidons-les » — ONG au service des nourrices, bébés et seniors depuis plus de 10 ans.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_nav">Navigation</h4>
+                    <ul>
+                        <li><a href="#mission" data-i18n="footer_nav_mission">Notre Mission</a></li>
+                        <li><a href="#valeurs" data-i18n="footer_nav_valeurs">Nos Valeurs</a></li>
+                        <li><a href="#programmes" data-i18n="footer_nav_programmes">Programmes</a></li>
+                        <li><a href="#raisons-benevole" data-i18n="footer_nav_benevolat">Bénévolat</a></li>
+                        <li><a href="#activites" data-i18n="footer_nav_activites">Activités</a></li>
+                        <li><a href="#actualites" data-i18n="footer_nav_actualites">Actualités</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_programmes">Programmes</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_koro">Kôrô — Seniors</a></li>
+                        <li><a href="#" data-i18n="footer_blatha">Blatha — Mères</a></li>
+                        <li><a href="#" data-i18n="footer_boudchou">Boud'chou — Enfants</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_contact">Contact</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Cocody, Riviera-Bonoumin Est, Abidjan</li>
+                        <li><i class="fas fa-envelope"></i> houkabenian@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +225 27 22 59 43 88</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p data-i18n="footer_copyright">&copy; 2026 HOUKABENIAN. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="#" data-i18n="footer_mentions">Mentions légales</a>
+                    <a href="#" data-i18n="footer_confidentialite">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Modal Confirmation Don -->
+    <div class="modal-overlay" id="donConfirmModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeDonModal">&times;</button>
+            <div class="modal-icon modal-icon-success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 data-i18n="modal_don_merci">Merci pour votre générosité !</h3>
+            <p class="modal-donor-info" id="modalDonorInfo"></p>
+            <div class="modal-payment-info">
+                <h4 data-i18n="modal_don_payment_title"><i class="fas fa-mobile-alt"></i> Pour finaliser votre don, envoyez le montant via :</h4>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <div class="payment-method-icon" style="background: #FF6600;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong>Orange Money</strong>
+                            <span class="payment-number">+225 07 59 95 45 24</span>
+                        </div>
+                    </div>
+                    <div class="payment-method">
+                        <div class="payment-method-icon" style="background: #FFCC00;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong>MTN Mobile Money</strong>
+                            <span class="payment-number">+225 01 07 07 44 70 46</span>
+                        </div>
+                    </div>
+                    <div class="payment-method">
+                        <div class="payment-method-icon" style="background: #1DC3E0;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong>Wave</strong>
+                            <span class="payment-number">+225 07 59 95 45 24</span>
+                        </div>
+                    </div>
+                    <div class="payment-method">
+                        <div class="payment-method-icon" style="background: #1B3A5C;">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <strong data-i18n="modal_virement">Virement bancaire / Chèque</strong>
+                            <span class="payment-number" data-i18n="modal_virement_contact">Contactez-nous au +225 27 22 59 43 88</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="payment-note" data-i18n="modal_don_note"><i class="fas fa-info-circle"></i> Mentionnez votre nom lors du transfert. L'équipe HOUKABENIAN vous confirmera la réception par email ou téléphone.</p>
+                <a href="grades.html" class="btn btn-primary" style="margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-award"></i> <span data-i18n="modal_don_voir_grades">Voir tous les grades de donateurs</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Inscription Activité -->
+    <div class="modal-overlay" id="activiteModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeActiviteModal">&times;</button>
+            <div class="modal-icon" style="color: var(--orange);">
+                <i class="fas fa-calendar-check"></i>
+            </div>
+            <h3 id="activiteModalTitle" data-i18n="modal_activite_title">S'inscrire à l'activité</h3>
+            <p id="activiteModalDesc" style="margin-bottom: 20px; color: var(--grey);"></p>
+            <form class="benevole-form" id="activiteForm">
+                <input type="hidden" name="activite_nom" id="activiteFormNom">
+                <div class="don-fields">
+                    <input type="text" name="nom" placeholder="Nom complet" data-i18n-placeholder="form_nom_placeholder" required>
+                    <input type="email" name="email" placeholder="Adresse email" data-i18n-placeholder="form_email_placeholder" required>
+                    <input type="tel" name="telephone" placeholder="Numéro de téléphone" data-i18n-placeholder="form_tel_placeholder" required>
+                    <input type="text" name="ville" placeholder="Ville / Commune" data-i18n-placeholder="form_ville_placeholder">
+                    <textarea name="message" placeholder="Message ou question (optionnel)" data-i18n-placeholder="don_message_placeholder" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100;">
+                    <i class="fas fa-paper-plane"></i> <span data-i18n="modal_activite_confirm">Confirmer mon inscription</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Confirmation Inscription Activité -->
+    <div class="modal-overlay" id="activiteConfirmModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeActiviteConfirmModal">&times;</button>
+            <div class="modal-icon modal-icon-success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 data-i18n="modal_activite_success">Inscription confirmée !</h3>
+            <p>Merci <strong id="activiteParticipantName"></strong> ! Votre inscription à <strong id="activiteConfirmName"></strong> a bien été enregistrée. L'équipe HOUKABENIAN vous contactera avec les détails pratiques.</p>
+        </div>
+    </div>
+
+    <!-- Modal Détail Activité -->
+    <div class="modal-overlay" id="activiteDetailModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <button class="modal-close" id="closeActiviteDetailModal">&times;</button>
+            <div id="activiteDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal Bénévole -->
+    <div class="modal-overlay" id="benevoleModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeBenevoleModal">&times;</button>
+            <div class="modal-icon" style="color: var(--teal);">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3 data-i18n="modal_benevole_title">Devenir Bénévole</h3>
+            <p data-i18n="modal_benevole_text">Rejoignez notre équipe de bénévoles et contribuez à changer des vies en Côte d'Ivoire.</p>
+            <form class="benevole-form" id="benevoleForm">
+                <div class="don-fields">
+                    <input type="text" name="nom" placeholder="Nom complet" data-i18n-placeholder="form_nom_placeholder" required>
+                    <input type="email" name="email" placeholder="Adresse email" data-i18n-placeholder="form_email_placeholder" required>
+                    <input type="tel" name="telephone" placeholder="Numéro de téléphone" data-i18n-placeholder="form_tel_placeholder" required>
+                    <input type="text" name="ville" placeholder="Ville / Commune" data-i18n-placeholder="form_ville_placeholder">
+                    <select name="programme_interet">
+                        <option value="">Programme qui vous intéresse</option>
+                        <option value="Kôrô (Seniors)">Kôrô — Accompagnement des aînés</option>
+                        <option value="Blatha (Mères)">Blatha — Accompagnement des mères</option>
+                        <option value="Boud'chou (Enfants)">Boud'chou — Protection des enfants</option>
+                        <option value="Tous les programmes">Tous les programmes</option>
+                    </select>
+                    <textarea name="motivation" placeholder="Pourquoi souhaitez-vous devenir bénévole ? (optionnel)" data-i18n-placeholder="modal_benevole_motivation" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; background: var(--teal);">
+                    <i class="fas fa-paper-plane"></i> <span data-i18n="modal_benevole_submit">Envoyer ma candidature</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Confirmation Bénévole -->
+    <div class="modal-overlay" id="benevoleConfirmModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeBenevoleConfirmModal">&times;</button>
+            <div class="modal-icon modal-icon-success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 data-i18n="modal_benevole_success">Candidature envoyée !</h3>
+            <p>Merci <strong id="benevoleName"></strong> pour votre intérêt ! L'équipe HOUKABENIAN vous contactera très prochainement pour les prochaines étapes.</p>
+            <p style="margin-top: 1rem; color: var(--grey);"><i class="fas fa-phone"></i> En attendant, vous pouvez aussi nous joindre au <strong>+225 27 22 59 43 88</strong></p>
+        </div>
+    </div>
+
+    <script src="i18n.js?v=1"></script>
+    <script src="script.js?v=4"></script>
+</body>
+</html>

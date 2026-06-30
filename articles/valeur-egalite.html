@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Égalité — Nos Valeurs | HOUKABENIAN</title>
+    <meta name="description" content="L'égalité nous amène à considérer tous les parents comme égaux, peu importe leur statut social, culture ou origine ethnique.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .article-page { padding-top: 120px; padding-bottom: 80px; min-height: 100vh; }
+        .article-back { display: inline-flex; align-items: center; gap: 8px; color: var(--orange); font-weight: 600; text-decoration: none; margin-bottom: 30px; transition: var(--transition); }
+        .article-back:hover { gap: 12px; color: var(--red); }
+        .article-header { margin-bottom: 40px; }
+        .article-tag { display: inline-block; background: linear-gradient(135deg, var(--orange), var(--red)); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+        .article-title { font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
+        .article-meta { display: flex; flex-wrap: wrap; gap: 20px; color: var(--grey); font-size: 0.9rem; }
+        .article-meta span { display: flex; align-items: center; gap: 6px; }
+        .article-hero-placeholder { width: 100%; height: 400px; background: linear-gradient(135deg, #8DC63F, #F7941D); border-radius: 16px; margin-bottom: 40px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; }
+        .article-body { max-width: 800px; margin: 0 auto; }
+        .article-body p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 24px; }
+        .article-body h2 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--navy); margin: 40px 0 16px; }
+        .article-body ul { margin: 16px 0 24px 24px; color: #444; font-size: 1.05rem; line-height: 1.8; }
+        .article-body li { margin-bottom: 8px; }
+        .article-body blockquote { border-left: 4px solid var(--green); margin: 30px 0; padding: 20px 30px; background: rgba(141, 198, 63, 0.05); border-radius: 0 12px 12px 0; font-style: italic; color: #555; font-size: 1.1rem; }
+        .article-share { display: flex; align-items: center; gap: 12px; margin: 40px 0; padding: 24px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .article-share span { font-weight: 600; color: var(--navy); }
+        .article-share a { width: 40px; height: 40px; border-radius: 50%; background: #f5f5f5; display: flex; align-items: center; justify-content: center; color: var(--navy); text-decoration: none; transition: var(--transition); }
+        .article-share a:hover { background: var(--orange); color: white; }
+        .article-cta { text-align: center; padding: 50px 30px; background: linear-gradient(135deg, rgba(141,198,63,0.08), rgba(247,148,29,0.08)); border-radius: 20px; margin-top: 50px; }
+        .article-cta h3 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--navy); margin-bottom: 12px; }
+        .article-cta p { color: var(--grey); margin-bottom: 24px; font-size: 1rem !important; }
+        .article-cta .btn { display: inline-flex; align-items: center; gap: 8px; }
+        .article-page-header { position: fixed; top: 0; left: 0; right: 0; background: var(--navy); padding: 16px 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+        .article-page-header .container { display: flex; align-items: center; justify-content: space-between; }
+        .article-page-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .article-page-header .logo img { width: 44px; height: 44px; border-radius: 50%; }
+        .article-page-header .logo span { font-weight: 800; font-size: 1.1rem; letter-spacing: 2px; color: white; }
+        .article-page-header .btn { font-size: 0.85rem; padding: 10px 24px; }
+        .valeur-highlight { background: linear-gradient(135deg, rgba(141,198,63,0.1), rgba(247,148,29,0.1)); border-radius: 16px; padding: 30px; margin: 30px 0; }
+        .valeur-highlight h3 { color: var(--green); margin-bottom: 12px; font-size: 1.2rem; }
+        .valeur-nav { display: flex; flex-wrap: wrap; gap: 12px; margin: 40px 0; }
+        .valeur-nav a { padding: 8px 20px; border-radius: 25px; background: #f5f5f5; color: var(--navy); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+        .valeur-nav a:hover, .valeur-nav a.active { background: var(--green); color: white; }
+        @media (max-width: 768px) { .article-page { padding-top: 100px; } .article-hero-placeholder { height: 250px; } }
+    </style>
+</head>
+<body>
+    <header class="article-page-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="HOUKABENIAN">
+                <span>HOUKABENIAN</span>
+            </a>
+            <div style="display:flex;align-items:center;gap:12px;"><button class="lang-switch" title="Switch language">FR / EN</button><a href="../index.html#don" class="btn btn-primary" data-i18n="article_faire_don">Faire un don</a></div>
+        </div>
+    </header>
+
+    <main class="article-page">
+        <div class="container">
+            <a href="../index.html#valeurs" class="article-back">
+                <i class="fas fa-arrow-left"></i> Retour aux valeurs
+            </a>
+
+            <article class="article-header">
+                <span class="article-tag">Nos Valeurs</span>
+                <h1 class="article-title">Égalité</h1>
+                <div class="article-meta">
+                    <span><i class="fas fa-balance-scale"></i> Valeur fondamentale</span>
+                    <span><i class="far fa-clock"></i> 3 min de lecture</span>
+                </div>
+            </article>
+
+            <img src="../images/raisons/raison-06.jpg" alt="Égalité — mains unies ensemble" class="article-hero-image">
+
+            <div class="article-body">
+                <p>
+                    L'égalité nous amène à considérer tous les parents comme égaux. C'est une valeur signifiant
+                    que chez HOUKABENIAN, les parents reçoivent les mêmes marques d'estime, la même attention,
+                    peu importe leur statut social, leur culture, leur origine ethnique.
+                </p>
+
+                <h2>Une même attention pour tous</h2>
+                <p>
+                    Chez HOUKABENIAN, il n'y a pas de traitement de faveur ni de discrimination. Chaque personne,
+                    qu'elle vienne d'un milieu aisé ou défavorisé, qu'elle soit instruite ou non, reçoit exactement
+                    la même qualité d'accompagnement et la même considération.
+                </p>
+
+                <div class="valeur-highlight">
+                    <h3><i class="fas fa-balance-scale"></i> Égalité et accessibilité</h3>
+                    <p style="margin-bottom: 0;">Égalité signifie également accessibilité. Tous nos bénéficiaires ont accès aux mêmes activités,
+                    aux mêmes services et aux mêmes opportunités de développement, sans distinction aucune.</p>
+                </div>
+
+                <h2>L'accessibilité pour tous</h2>
+                <p>
+                    L'égalité chez HOUKABENIAN signifie également accessibilité aux différentes activités et
+                    aux différents services. Nous veillons à ce que personne ne soit exclu, que ce soit pour
+                    des raisons financières, géographiques ou sociales.
+                </p>
+
+                <blockquote>
+                    "Quand je suis arrivée chez HOUKABENIAN, j'avais peur d'être jugée pour ma situation.
+                    Mais ici, tout le monde est traité de la même façon. Personne n'est au-dessus de l'autre.
+                    C'est un vrai soulagement."
+                </blockquote>
+
+                <h2>L'égalité en action</h2>
+                <ul>
+                    <li>Mêmes marques d'estime pour chaque bénéficiaire</li>
+                    <li>Accessibilité aux activités sans discrimination</li>
+                    <li>Services disponibles indépendamment du statut social</li>
+                    <li>Respect des différences culturelles et ethniques</li>
+                    <li>Inclusion de toutes les familles dans les programmes</li>
+                </ul>
+
+                <p>
+                    L'égalité n'est pas simplement un principe affiché sur nos murs : c'est un engagement
+                    quotidien que chaque membre de l'équipe HOUKABENIAN porte en lui. C'est ce qui fait
+                    que chaque personne se sent véritablement bienvenue et valorisée.
+                </p>
+
+                <div class="valeur-nav">
+                    <a href="valeur-accueil-chaleureux.html">Accueil Chaleureux</a>
+                    <a href="valeur-entraide.html">Entraide</a>
+                    <a href="valeur-respect.html">Respect</a>
+                    <a href="valeur-empathie.html">Empathie</a>
+                    <a href="valeur-egalite.html" class="active">Égalité</a>
+                </div>
+
+                <div class="article-share">
+                    <span data-i18n="article_partager">Partager :</span>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+
+                <div class="article-cta">
+                    <h3>Rejoignez la famille HOUKABENIAN</h3>
+                    <p>Devenez bénévole et portez l'égalité au quotidien.</p>
+                    <a href="../index.html#benevolat" class="btn btn-primary">
+                        <i class="fas fa-hands-helping"></i> Devenir bénévole
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+<script src="../i18n.js?v=1"></script>
+</body>
+</html>
