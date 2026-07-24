@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Programmes — HOUKABENIAN</title>
+    <meta name="description" content="Découvrez les trois programmes de HOUKABENIAN : Kôrô pour les seniors, Blatha pour les mères, et Boud'chou pour les tout-petits.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --orange: #F7941D;
+            --red: #E8572A;
+            --teal: #00A79D;
+            --green: #8DC63F;
+            --navy: #1B3A5C;
+        }
+
+        /* Hero */
+        .page-hero {
+            background: var(--navy);
+            color: #fff;
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .page-hero p {
+            font-size: 1.15rem;
+            max-width: 620px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Tabs */
+        .programmes-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            position: sticky;
+            top: 72px;
+            z-index: 50;
+        }
+        .tab-btn {
+            padding: 20px 36px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6c757d;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tab-btn i {
+            font-size: 1.1rem;
+        }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: transparent;
+            transition: background 0.3s;
+        }
+        .tab-btn:hover {
+            color: var(--navy);
+        }
+        .tab-btn.active {
+            color: var(--navy);
+        }
+        .tab-btn.active::after {
+            background: var(--orange);
+        }
+        .tab-btn[data-tab="koro"].active::after { background: var(--teal); }
+        .tab-btn[data-tab="blatha"].active::after { background: var(--red); }
+        .tab-btn[data-tab="boudchou"].active::after { background: var(--orange); }
+
+        /* Programme panels */
+        .programme-panel {
+            display: none;
+            padding: 80px 0;
+            animation: fadeInPanel 0.5s ease;
+        }
+        .programme-panel.active {
+            display: block;
+        }
+        @keyframes fadeInPanel {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .programme-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .programme-grid.reverse {
+            direction: rtl;
+        }
+        .programme-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .programme-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            position: relative;
+        }
+        .programme-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        .programme-image-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .programme-content {
+            padding: 20px 0;
+        }
+        .programme-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+        .programme-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .programme-meaning {
+            font-size: 1rem;
+            font-style: italic;
+            color: #6c757d;
+            margin-bottom: 24px;
+        }
+        .programme-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid;
+            font-style: italic;
+        }
+        .programme-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 28px;
+        }
+        .programme-extra {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #6c757d;
+            margin-bottom: 24px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .programme-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .programme-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #333;
+        }
+        .programme-features li .check-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .programme-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .programme-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Sub-items for Blatha */
+        .programme-sub-items {
+            margin-bottom: 24px;
+        }
+        .programme-sub-items h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        .programme-sub-items ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .programme-sub-items ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        .programme-sub-items ul li i {
+            margin-top: 3px;
+            font-size: 0.7rem;
+        }
+
+        /* Color themes per programme */
+        .panel-koro .programme-label { color: var(--teal); }
+        .panel-koro .programme-quote { border-color: var(--teal); }
+        .panel-koro .programme-image-badge { background: var(--teal); }
+        .panel-koro .check-icon { background: var(--teal); }
+        .panel-koro .programme-cta { background: var(--teal); }
+
+        .panel-blatha .programme-label { color: var(--red); }
+        .panel-blatha .programme-quote { border-color: var(--red); }
+        .panel-blatha .programme-image-badge { background: var(--red); }
+        .panel-blatha .check-icon { background: var(--red); }
+        .panel-blatha .programme-cta { background: var(--red); }
+
+        .panel-boudchou .programme-label { color: var(--orange); }
+        .panel-boudchou .programme-quote { border-color: var(--orange); }
+        .panel-boudchou .programme-image-badge { background: var(--orange); }
+        .panel-boudchou .check-icon { background: var(--orange); }
+        .panel-boudchou .programme-cta { background: var(--orange); }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 100;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 120px 0 60px;
+            }
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            .page-hero p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            .programmes-tabs {
+                gap: 0;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .tab-btn {
+                padding: 16px 20px;
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+            .programme-panel {
+                padding: 50px 0;
+            }
+            .programme-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .programme-grid.reverse {
+                direction: ltr;
+            }
+            .programme-image img {
+                height: 280px;
+            }
+            .programme-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header scrolled" id="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><img src="images/logo.png" alt="HOUKABENIAN" width="52" height="52"></div>
+            <div class="logo-text"><span class="logo-name">HOUKABENIAN</span><span class="logo-tagline">« Aidons-les »</span></div>
+        </a>
+        <nav class="nav" id="mainNav">
+            <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous</a>
+            <a href="programmes.html" class="nav-link active">Programmes</a>
+            <a href="benevolat.html" class="nav-link">Bénévolat</a>
+            <a href="activites.html" class="nav-link">Activités</a>
+            <a href="actualites.html" class="nav-link">Actualités</a>
+            <a href="equipe.html" class="nav-link">Équipe</a>
+        </nav>
+        <div class="header-actions">
+            <a href="faire-un-don.html" class="btn btn-primary btn-sm">Faire un don</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-content">
+        <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous</a>
+        <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+        <a href="benevolat.html" class="mobile-nav-link">Bénévolat</a>
+        <a href="activites.html" class="mobile-nav-link">Activités</a>
+        <a href="actualites.html" class="mobile-nav-link">Actualités</a>
+        <a href="equipe.html" class="mobile-nav-link">Équipe</a>
+        <div class="mobile-nav-cta">
+            <a href="faire-un-don.html" class="btn btn-primary">Faire un don</a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Nos Programmes</h1>
+        <p>Trois piliers d'action pour accompagner les plus vulnérables à chaque étape de la vie.</p>
+    </div>
+</section>
+
+<!-- Tabs -->
+<div class="programmes-tabs">
+    <button class="tab-btn active" data-tab="koro"><i class="fas fa-user-friends"></i> Kôrô</button>
+    <button class="tab-btn" data-tab="blatha"><i class="fas fa-female"></i> Blatha</button>
+    <button class="tab-btn" data-tab="boudchou"><i class="fas fa-baby"></i> Boud'chou</button>
+</div>
+
+<!-- Programme Panels -->
+<div class="programmes-content">
+
+    <!-- Kôrô -->
+    <section class="programme-panel panel-koro active" id="koro" data-panel="koro">
+        <div class="container">
+            <div class="programme-grid">
+                <div class="programme-image">
+                    <div class="programme-image-badge"><i class="fas fa-user-friends"></i></div>
+                    <img src="https://images.unsplash.com/photo-1736896165046-5df757614776?w=600&q=80" alt="Programme Kôrô — Accompagnement des personnes âgées" loading="lazy">
+                </div>
+                <div class="programme-content">
+                    <div class="programme-label"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Programme Seniors</div>
+                    <h2 class="programme-name">Kôrô</h2>
+                    <p class="programme-meaning">« L'ancien, le sage »</p>
+                    <blockquote class="programme-quote">
+                        Imaginez qu'après avoir vécu une vie bien remplie, vous vous retrouviez seul au monde. Sans famille, fragilisé par l'âge, sans personne avec qui parler et partager votre vie.
+                    </blockquote>
+                    <p class="programme-text">
+                        Accompagnement des personnes âgées : lutte contre l'isolement, accès aux soins, activités sociales et soutien au quotidien. Parce que nos aînés méritent de vivre leurs dernières années dans la dignité et la joie.
+                    </p>
+                    <ul class="programme-features">
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Visites à domicile régulières</li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Accès aux soins médicaux</li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Activités sociales et récréatives</li>
+                    </ul>
+                    <a href="faire-un-don.html" class="programme-cta">
+                        <i class="fas fa-heart"></i> Faire un don à ce programme
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blatha -->
+    <section class="programme-panel panel-blatha" id="blatha" data-panel="blatha">
+        <div class="container">
+            <div class="programme-grid reverse">
+                <div class="programme-image">
+                    <div class="programme-image-badge"><i class="fas fa-female"></i></div>
+                    <img src="https://images.unsplash.com/photo-1504888060547-83cbe78ccfe0?w=600&q=80" alt="Programme Blatha — Accompagnement des mères" loading="lazy">
+                </div>
+                <div class="programme-content">
+                    <div class="programme-label"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Programme Mères</div>
+                    <h2 class="programme-name">Blatha</h2>
+                    <p class="programme-meaning">« La mère nourricière »</p>
+                    <blockquote class="programme-quote">
+                        Un petit trésor grandit maintenant en toi! HOUKABENIAN est là pour t'accompagner pendant les prochains mois afin de te préparer à la venue de ton bébé.
+                    </blockquote>
+                    <p class="programme-text">
+                        Accompagnement des femmes enceintes et des nourrices : suivi prénatal et postnatal, sensibilisation, autonomisation financière. Pour que chaque mère puisse donner le meilleur à son enfant.
+                    </p>
+                    <div class="programme-sub-items">
+                        <h4>Nos axes d'intervention :</h4>
+                        <ul>
+                            <li><i class="fas fa-chevron-right" style="color:var(--red);"></i> Ateliers de préparation à l'accouchement</li>
+                            <li><i class="fas fa-chevron-right" style="color:var(--red);"></i> Mieux connaître les besoins et les réalités vécues par les futurs et nouveaux parents</li>
+                            <li><i class="fas fa-chevron-right" style="color:var(--red);"></i> Dépression postpartum</li>
+                        </ul>
+                    </div>
+                    <div class="programme-extra">
+                        <i class="fas fa-quote-left" style="color:var(--red); margin-right:8px;"></i>
+                        Maman, vous êtes à bout de souffle? Vous n'êtes pas la seule. HOUKABENIAN est à votre écoute.
+                    </div>
+                    <ul class="programme-features">
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Suivi prénatal et postnatal</li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Formations en autonomie financière</li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Groupes de soutien entre mères</li>
+                    </ul>
+                    <a href="faire-un-don.html" class="programme-cta">
+                        <i class="fas fa-heart"></i> Faire un don à ce programme
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boud'chou -->
+    <section class="programme-panel panel-boudchou" id="boudchou" data-panel="boudchou">
+        <div class="container">
+            <div class="programme-grid">
+                <div class="programme-image">
+                    <div class="programme-image-badge"><i class="fas fa-baby"></i></div>
+                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80" alt="Programme Boud'chou — Protection des tout-petits" loading="lazy">
+                </div>
+                <div class="programme-content">
+                    <div class="programme-label"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Programme Enfants</div>
+                    <h2 class="programme-name">Boud'chou</h2>
+                    <p class="programme-meaning">« Le tout-petit »</p>
+                    <blockquote class="programme-quote">
+                        Après plusieurs semaines d'attente, tu as enfin bébé dans tes bras, avec qui tu te familiarises tranquillement. Les prochains mois seront remplis de diverses émotions et ton bébé changera au fil des semaines.
+                    </blockquote>
+                    <p class="programme-text">
+                        Protection et suivi des nouveau-nés et nourrissons : vaccination, nutrition, suivi de croissance. Chaque enfant mérite de naître et de grandir dans les meilleures conditions.
+                    </p>
+                    <ul class="programme-features">
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Campagnes de vaccination</li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Suivi nutritionnel</li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> Éducation parentale</li>
+                    </ul>
+                    <a href="faire-un-don.html" class="programme-cta">
+                        <i class="fas fa-heart"></i> Faire un don à ce programme
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <div class="footer-logo"><img src="images/logo.png" alt="HOUKABENIAN" width="44" height="44"><span>HOUKABENIAN</span></div>
+                <p>« Aidons-les » — ONG au service des nourrices, bébés et seniors depuis plus de 10 ans.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col"><h4>Navigation</h4><ul>
+                <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                <li><a href="programmes.html">Programmes</a></li>
+                <li><a href="benevolat.html">Bénévolat</a></li>
+                <li><a href="activites.html">Activités</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+            </ul></div>
+            <div class="footer-col"><h4>Programmes</h4><ul>
+                <li><a href="programmes.html#koro">Kôrô — Seniors</a></li>
+                <li><a href="programmes.html#blatha">Blatha — Mères</a></li>
+                <li><a href="programmes.html#boudchou">Boud'chou — Enfants</a></li>
+            </ul></div>
+            <div class="footer-col"><h4>Contact</h4><ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i> Cocody, Riviera-Bonoumin Est, Abidjan</li>
+                <li><i class="fas fa-envelope"></i> houkabenian@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +225 27 22 59 43 88</li>
+            </ul></div>
+        </div>
+    </div>
+    <div class="footer-bottom"><div class="container footer-bottom-inner">
+        <p>&copy; 2026 HOUKABENIAN. Tous droits réservés.</p>
+        <div class="footer-links"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div>
+    </div></div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+(function() {
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.programme-panel');
+
+    function activateTab(tabId) {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        const targetTab = document.querySelector('.tab-btn[data-tab="' + tabId + '"]');
+        const targetPanel = document.querySelector('.programme-panel[data-panel="' + tabId + '"]');
+
+        if (targetTab) targetTab.classList.add('active');
+        if (targetPanel) targetPanel.classList.add('active');
+    }
+
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            var tabId = this.getAttribute('data-tab');
+            activateTab(tabId);
+            history.replaceState(null, '', '#' + tabId);
+        });
+    });
+
+    // Hash-based navigation
+    function handleHash() {
+        var hash = window.location.hash.replace('#', '');
+        if (hash && document.querySelector('.programme-panel[data-panel="' + hash + '"]')) {
+            activateTab(hash);
+            setTimeout(function() {
+                var el = document.getElementById(hash);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+
+    // Hamburger menu
+    var hamburger = document.getElementById('hamburger');
+    var mobileNav = document.getElementById('mobileNav');
+
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.classList.toggle('nav-open');
+        });
+
+        mobileNav.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            });
+        });
+    }
+
+    // Back to top
+    var backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+</script>
+
+</body>
+</html>

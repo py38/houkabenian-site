@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benevolat - HOUKABENIAN</title>
+    <meta name="description" content="Devenez benevole chez HOUKABENIAN. Rejoignez notre equipe de cinquantaine de benevoles et contribuez a changer des vies en Cote d'Ivoire.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #F7941D;
+            --red: #E8572A;
+            --teal: #00A79D;
+            --green: #8DC63F;
+            --navy: #1B3A5C;
+        }
+
+        /* Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--teal), #007a73);
+            color: #fff;
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .page-hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Intro section */
+        .benevolat-intro {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .benevolat-intro .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .benevolat-intro .intro-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        .benevolat-intro .intro-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--teal), #007a73);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: #fff;
+            font-size: 1.8rem;
+        }
+        .benevolat-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        /* Accordion - 10 Reasons */
+        .raisons-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        .raisons-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .raisons-section .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.05rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .accordion {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s;
+        }
+        .accordion-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        .accordion-item.active {
+            box-shadow: 0 4px 20px rgba(0,167,157,0.15);
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 24px;
+            cursor: pointer;
+            transition: background 0.2s;
+            user-select: none;
+        }
+        .accordion-header:hover {
+            background: #f0faf9;
+        }
+        .accordion-item.active .accordion-header {
+            background: #f0faf9;
+            border-bottom: 1px solid #e8f5f4;
+        }
+
+        .accordion-number {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: var(--teal);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .accordion-title {
+            flex: 1;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--navy);
+        }
+
+        .accordion-icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .accordion-body-inner {
+            padding: 24px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .accordion-body-inner img {
+            width: 180px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .accordion-body-inner .accordion-text {
+            flex: 1;
+        }
+        .accordion-body-inner .accordion-text p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .accordion-body-inner .accordion-text .btn-lire-plus {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: gap 0.2s;
+        }
+        .accordion-body-inner .accordion-text .btn-lire-plus:hover {
+            gap: 10px;
+        }
+
+        /* Recruitment process */
+        .recrutement-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+        .recrutement-section .recrutement-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .recrutement-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        .recrutement-section p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Fiches section */
+        .fiches-section {
+            padding: 60px 0;
+            background: #f0faf9;
+        }
+        .fiches-section .fiches-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .fiches-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        .fiches-section p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .fiches-section .fiches-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--teal);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Form section */
+        .form-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .form-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .form-section .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+        .form-section .form-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .form-section .form-wrapper .don-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .form-section .form-wrapper input,
+        .form-section .form-wrapper select,
+        .form-section .form-wrapper textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: #fff;
+            box-sizing: border-box;
+        }
+        .form-section .form-wrapper input:focus,
+        .form-section .form-wrapper select:focus,
+        .form-section .form-wrapper textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0,167,157,0.1);
+        }
+        .form-section .form-wrapper textarea {
+            resize: vertical;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 120px 20px 60px;
+            }
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            .accordion-body-inner {
+                flex-direction: column;
+            }
+            .accordion-body-inner img {
+                width: 100%;
+                height: 200px;
+            }
+            .form-section .form-wrapper {
+                padding: 24px;
+                margin: 0 16px;
+            }
+            .benevolat-intro,
+            .raisons-section,
+            .form-section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header scrolled" id="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="images/logo.png" alt="HOUKABENIAN" width="52" height="52"></div>
+                <div class="logo-text"><span class="logo-name">HOUKABENIAN</span><span class="logo-tagline">&laquo; Aidons-les &raquo;</span></div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous</a>
+                <a href="programmes.html" class="nav-link">Programmes</a>
+                <a href="benevolat.html" class="nav-link active">B&eacute;n&eacute;volat</a>
+                <a href="activites.html" class="nav-link">Activit&eacute;s</a>
+                <a href="actualites.html" class="nav-link">Actualit&eacute;s</a>
+                <a href="equipe.html" class="nav-link">&Eacute;quipe</a>
+            </nav>
+            <div class="header-actions">
+                <a href="faire-un-don.html" class="btn btn-primary btn-sm">Faire un don</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous</a>
+            <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+            <a href="benevolat.html" class="mobile-nav-link">B&eacute;n&eacute;volat</a>
+            <a href="activites.html" class="mobile-nav-link">Activit&eacute;s</a>
+            <a href="actualites.html" class="mobile-nav-link">Actualit&eacute;s</a>
+            <a href="equipe.html" class="mobile-nav-link">&Eacute;quipe</a>
+            <div class="mobile-nav-cta">
+                <a href="faire-un-don.html" class="btn btn-primary">Faire un don</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1><i class="fas fa-hands-helping"></i> B&eacute;n&eacute;volat</h1>
+            <p>Rejoignez notre &eacute;quipe de b&eacute;n&eacute;voles et contribuez &agrave; changer des vies au quotidien.</p>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="benevolat-intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2>Nos b&eacute;n&eacute;voles, notre force</h2>
+                <p>C'est gr&acirc;ce &agrave; l'aide pr&eacute;cieuse de notre &eacute;quipe d'une cinquantaine de b&eacute;n&eacute;voles que nous pouvons mettre tout en &oelig;uvre pour accompagner humainement les personnes a&icirc;n&eacute;es et les familles aussi longtemps que n&eacute;cessaire. Sans ces complices nous n'arriverions pas &agrave; tout accomplir. Ils sont une source d'inspiration en raison de la diff&eacute;rence qu'ils font dans le quotidien des personnes que nous soutenons.</p>
+                <p>Nous travaillons de concert avec notre cinquantaine de b&eacute;n&eacute;voles retrait&eacute;es pour aider plus de 200 personnes de nos secteurs. Que ce soit pour des visites et d'appels d'amiti&eacute; et de soutien divers.</p>
+                <p>Ils sont essentiels &agrave; la mission de l'ONG et sont l'une des pierres angulaires. Les personnes aupr&egrave;s desquelles nous &oelig;uvrons ne pourraient recevoir autant de pr&eacute;sences et de soutien sans leurs collaborations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10 Reasons Accordion -->
+    <section class="raisons-section" id="raisons">
+        <div class="container">
+            <h2>10 raisons de devenir b&eacute;n&eacute;vole</h2>
+            <p class="section-subtitle">D&eacute;couvrez pourquoi rejoindre HOUKABENIAN est une exp&eacute;rience enrichissante et transformatrice.</p>
+
+            <div class="accordion">
+                <!-- Raison 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">1</div>
+                        <div class="accordion-title">C'est bon pour la sant&eacute;</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-01.jpg" alt="C'est bon pour la sant&eacute;">
+                            <div class="accordion-text">
+                                <p>94 % des personnes qui font du b&eacute;n&eacute;volat mentionnent que &ccedil;a am&eacute;liore leur humeur. Le b&eacute;n&eacute;volat contribue &agrave; am&eacute;liorer la qualit&eacute; de vie et la sant&eacute; des collectivit&eacute;s. Une &eacute;tude r&eacute;v&egrave;le que 100 heures de b&eacute;n&eacute;volat par ann&eacute;e am&eacute;liorent les capacit&eacute;s physiques et mentales. Les a&icirc;n&eacute;s qui font du b&eacute;n&eacute;volat sont moins souvent aux prises avec une maladie li&eacute;e au stress.</p>
+                                <a href="articles/raison-sante.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">2</div>
+                        <div class="accordion-title">Pour faire partie de la grande famille</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-02.jpg" alt="Pour faire partie de la grande famille">
+                            <div class="accordion-text">
+                                <p>Depuis 5 ans, nos b&eacute;n&eacute;voles contribuent dans le plaisir &agrave; cette &oelig;uvre de solidarit&eacute; et d'entraide. Ils accompagnent des personnes &acirc;g&eacute;es isol&eacute;es dans un esprit familial. Dans tout le pays, vous trouverez &agrave; HOUKABENIAN une ambiance chaleureuse, humaine et festive.</p>
+                                <a href="articles/raison-grande-famille.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">3</div>
+                        <div class="accordion-title">Parce que nous sommes compr&eacute;hensifs</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-03.jpg" alt="Parce que nous sommes compr&eacute;hensifs">
+                            <div class="accordion-text">
+                                <p>Nous savons que votre temps est pr&eacute;cieux et que vous d&eacute;sirez vivre diff&eacute;rentes exp&eacute;riences. Nous respectons le temps que vous avez &agrave; donner et les limites que vous exprimez. Par exemple approximativement quatre heures par mois.</p>
+                                <a href="articles/raison-comprehensibles.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">4</div>
+                        <div class="accordion-title">Pour vivre de grands moments</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-04.jpg" alt="Pour vivre de grands moments">
+                            <div class="accordion-text">
+                                <p>C&eacute;l&eacute;brer la beaut&eacute; de la vie et de la vieillesse fait partie de notre vision. Tout ce que nous faisons vise &agrave; cr&eacute;er du bonheur en offrant amiti&eacute;, tendresse et r&eacute;confort.</p>
+                                <a href="articles/raison-grands-moments.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">5</div>
+                        <div class="accordion-title">Pour avoir un impact direct sur la vie de personnes &acirc;g&eacute;es</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-05.jpg" alt="Pour avoir un impact direct">
+                            <div class="accordion-text">
+                                <p>Briser l'isolement, une personne &agrave; la fois, avec un sourire, une &eacute;coute paisible, une bonne conversation amicale, le fait d'&ecirc;tre simplement l&agrave;.</p>
+                                <a href="articles/raison-impact-direct.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 6 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">6</div>
+                        <div class="accordion-title">Pour contribuer &agrave; une soci&eacute;t&eacute; bien &eacute;quilibr&eacute;e</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-06.jpg" alt="Pour contribuer &agrave; une soci&eacute;t&eacute; bien &eacute;quilibr&eacute;e">
+                            <div class="accordion-text">
+                                <p>Le secteur caritatif est l'un des trois piliers de la soci&eacute;t&eacute; aux c&ocirc;t&eacute;s des secteurs public et priv&eacute;. HOUKABENIAN d&eacute;pend largement de cette source vive pour mener sa mission &agrave; bien.</p>
+                                <a href="articles/raison-societe-equilibree.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 7 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">7</div>
+                        <div class="accordion-title">Pour vivre des exp&eacute;riences interg&eacute;n&eacute;rationnelles</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-07.jpg" alt="Pour vivre des exp&eacute;riences interg&eacute;n&eacute;rationnelles">
+                            <div class="accordion-text">
+                                <p>Les jeunes sont engag&eacute;s et font du b&eacute;n&eacute;volat (54 % des 15 &agrave; 24 ans). Chez HOUKABENIAN, nous trouvons des b&eacute;n&eacute;voles de tous &acirc;ges et de toutes g&eacute;n&eacute;rations.</p>
+                                <a href="articles/raison-intergenerationnel.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 8 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">8</div>
+                        <div class="accordion-title">Pour rencontrer d'autres personnes actives et g&eacute;n&eacute;reuses</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-08.jpg" alt="Pour rencontrer d'autres personnes actives et g&eacute;n&eacute;reuses">
+                            <div class="accordion-text">
+                                <p>Nos b&eacute;n&eacute;voles sont des gens actifs qui choisissent d'offrir leur temps pour aider des personnes dans le besoin. Ils retirent de nombreux bienfaits comme le sentiment d'appartenance, des liens sociaux, le perfectionnement de leurs comp&eacute;tences.</p>
+                                <a href="articles/raison-rencontres.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 9 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">9</div>
+                        <div class="accordion-title">Pour participer au bien-&ecirc;tre des nouveaux parents</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-09.jpg" alt="Pour participer au bien-&ecirc;tre des nouveaux parents">
+                            <div class="accordion-text">
+                                <p>Au c&oelig;ur de notre action, les gens. HOUKABENIAN ne serait pas ce qu'il est sans b&eacute;n&eacute;voles. Devenir b&eacute;n&eacute;vole c'est porter int&eacute;r&ecirc;t envers les b&eacute;b&eacute;s, les enfants et les parents.</p>
+                                <a href="articles/raison-bien-etre-parents.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raison 10 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">10</div>
+                        <div class="accordion-title">Pour un d&eacute;veloppement personnel accompli</div>
+                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <img src="images/raisons/raison-10.jpg" alt="Pour un d&eacute;veloppement personnel accompli">
+                            <div class="accordion-text">
+                                <p>Connaissance de soi, valorisation, moyen de se r&eacute;aliser, plus grande ouverture aux autres, acquisition de connaissances et d'habilet&eacute;s nouvelles.</p>
+                                <a href="articles/raison-developpement-personnel.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment process -->
+    <section class="recrutement-section">
+        <div class="container">
+            <div class="recrutement-content">
+                <h2>Processus de recrutement</h2>
+                <p>Nous avons un processus de recrutement et c'est par une entrevue de s&eacute;lection rigoureuse avec la coordonnatrice et la directrice que l'on devient b&eacute;n&eacute;vole. Les personnes int&eacute;ress&eacute;es doivent remplir un formulaire d'adh&eacute;sion pr&eacute;vu &agrave; cet effet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fiches d'identification -->
+    <section class="fiches-section">
+        <div class="container">
+            <div class="fiches-content">
+                <div class="fiches-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <h2>Fiches d'identification et contrats d'adh&eacute;sion</h2>
+                <p>Chaque b&eacute;n&eacute;vole re&ccedil;oit une fiche d'identification et signe un contrat d'adh&eacute;sion qui d&eacute;finit les engagements mutuels entre le b&eacute;n&eacute;vole et l'ONG HOUKABENIAN. Ces documents garantissent un cadre clair et respectueux pour tous.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Form -->
+    <section class="form-section" id="formulaire">
+        <div class="container">
+            <h2><i class="fas fa-hands-helping" style="color: var(--teal);"></i> Devenir b&eacute;n&eacute;vole</h2>
+            <p class="section-subtitle">Remplissez le formulaire ci-dessous pour soumettre votre candidature.</p>
+
+            <div class="form-wrapper">
+                <form class="benevole-form" id="benevoleForm">
+                    <div class="don-fields">
+                        <input type="text" name="nom" placeholder="Nom complet" required>
+                        <input type="email" name="email" placeholder="Adresse email" required>
+                        <input type="tel" name="telephone" placeholder="Num&eacute;ro de t&eacute;l&eacute;phone" required>
+                        <input type="text" name="ville" placeholder="Ville / Commune">
+                        <select name="programme_interet">
+                            <option value="">Programme qui vous int&eacute;resse</option>
+                            <option value="Kôrô (Seniors)">K&ocirc;r&ocirc; &mdash; Accompagnement des a&icirc;n&eacute;s</option>
+                            <option value="Blatha (Mères)">Blatha &mdash; Accompagnement des m&egrave;res</option>
+                            <option value="Boud'chou (Enfants)">Boud'chou &mdash; Protection des enfants</option>
+                            <option value="Tous les programmes">Tous les programmes</option>
+                        </select>
+                        <textarea name="motivation" placeholder="Pourquoi souhaitez-vous devenir b&eacute;n&eacute;vole ? (optionnel)" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; background: var(--teal);">
+                        <i class="fas fa-paper-plane"></i> Envoyer ma candidature
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="HOUKABENIAN" width="44" height="44">
+                        <span>HOUKABENIAN</span>
+                    </div>
+                    <p>&laquo; Aidons-les &raquo; &mdash; ONG au service des nourrices, b&eacute;b&eacute;s et seniors depuis plus de 10 ans.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                        <li><a href="programmes.html">Programmes</a></li>
+                        <li><a href="benevolat.html">B&eacute;n&eacute;volat</a></li>
+                        <li><a href="activites.html">Activit&eacute;s</a></li>
+                        <li><a href="actualites.html">Actualit&eacute;s</a></li>
+                        <li><a href="equipe.html">&Eacute;quipe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Programmes</h4>
+                    <ul>
+                        <li><a href="programmes.html">K&ocirc;r&ocirc; &mdash; Seniors</a></li>
+                        <li><a href="programmes.html">Blatha &mdash; M&egrave;res</a></li>
+                        <li><a href="programmes.html">Boud'chou &mdash; Enfants</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Cocody, Riviera-Bonoumin Est, Abidjan</li>
+                        <li><i class="fas fa-envelope"></i> houkabenian@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +225 27 22 59 43 88</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>&copy; 2026 HOUKABENIAN. Tous droits r&eacute;serv&eacute;s.</p>
+                <div class="footer-links">
+                    <a href="#">Mentions l&eacute;gales</a>
+                    <a href="#">Politique de confidentialit&eacute;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Accordion toggle
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const body = item.querySelector('.accordion-body');
+            const isActive = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.accordion-item').forEach(function(ai) {
+                ai.classList.remove('active');
+                ai.querySelector('.accordion-body').style.maxHeight = null;
+            });
+
+            // Open clicked if it was closed
+            if (!isActive) {
+                item.classList.add('active');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            }
+        }
+
+        // Hamburger menu
+        var hamburger = document.getElementById('hamburger');
+        var mobileNav = document.getElementById('mobileNav');
+        if (hamburger && mobileNav) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            });
+            // Close on link click
+            mobileNav.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // Back to top
+        var backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Form submission
+        document.getElementById('benevoleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            var data = {
+                sheet: 'Benevoles',
+                nom: form.nom.value,
+                email: form.email.value,
+                telephone: form.telephone.value,
+                ville: form.ville.value,
+                programme_interet: form.programme_interet.value,
+                motivation: form.motivation.value
+            };
+            var btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            fetch('https://script.google.com/macros/s/AKfycbzCn6QrBORXWYdHTKbtAXSHK4I5A804-4nvQ-VKYQL-GeKvO_GC2EwUdIWqafpA9fFuFw/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(data)
+            }).then(function() {
+                btn.innerHTML = '<i class="fas fa-check"></i> Candidature envoy&eacute;e !';
+                btn.style.background = 'var(--green)';
+                form.reset();
+                setTimeout(function() {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma candidature';
+                    btn.style.background = 'var(--teal)';
+                }, 4000);
+            }).catch(function() {
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erreur, r&eacute;essayez';
+                btn.style.background = 'var(--red)';
+                btn.disabled = false;
+                setTimeout(function() {
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma candidature';
+                    btn.style.background = 'var(--teal)';
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>

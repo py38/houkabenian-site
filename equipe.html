@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe — HOUKABENIAN</title>
+    <meta name="description" content="Découvrez l'équipe dévouée de HOUKABENIAN qui oeuvre chaque jour pour les plus vulnérables.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --orange: #F7941D;
+            --red: #E8572A;
+            --teal: #00A79D;
+            --green: #8DC63F;
+            --navy: #1B3A5C;
+        }
+
+        .page-hero {
+            background: var(--navy);
+            color: #fff;
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .page-hero p {
+            font-size: 1.15rem;
+            max-width: 620px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .equipe-section {
+            padding: 80px 0;
+        }
+        .equipe-section:nth-child(odd) {
+            background: var(--gray-50);
+        }
+
+        .equipe-section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .equipe-section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .equipe-section-title .title-bar {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-warm);
+            border-radius: 2px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 2rem; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .team-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="header scrolled" id="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="images/logo.png" alt="HOUKABENIAN" width="52" height="52"></div>
+                <div class="logo-text"><span class="logo-name">HOUKABENIAN</span><span class="logo-tagline">« Aidons-les »</span></div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous</a>
+                <a href="programmes.html" class="nav-link">Programmes</a>
+                <a href="benevolat.html" class="nav-link">Bénévolat</a>
+                <a href="activites.html" class="nav-link">Activités</a>
+                <a href="actualites.html" class="nav-link">Actualités</a>
+                <a href="equipe.html" class="nav-link active">Équipe</a>
+            </nav>
+            <div class="header-actions">
+                <a href="faire-un-don.html" class="btn btn-primary btn-sm">Faire un don</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous</a>
+            <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+            <a href="benevolat.html" class="mobile-nav-link">Bénévolat</a>
+            <a href="activites.html" class="mobile-nav-link">Activités</a>
+            <a href="actualites.html" class="mobile-nav-link">Actualités</a>
+            <a href="equipe.html" class="mobile-nav-link">Équipe</a>
+            <div class="mobile-nav-cta"><a href="faire-un-don.html" class="btn btn-primary">Faire un don</a></div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Notre Équipe</h1>
+            <p>Des femmes et des hommes dévoués qui donnent le meilleur d'eux-mêmes pour les plus vulnérables.</p>
+        </div>
+    </section>
+
+    <!-- Conseil d'Administration -->
+    <section class="equipe-section">
+        <div class="container">
+            <div class="equipe-section-title">
+                <h2>Conseil d'Administration</h2>
+                <div class="title-bar"></div>
+            </div>
+            <div class="team-grid">
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/presidente-1.jpg" alt="Mme N'GUESSAN Akissi Madeleine" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Mme N'GUESSAN Akissi Madeleine</h4>
+                    <p class="team-role">Présidente du CA</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/vice-presidente.jpg" alt="Soeur NIANGORAN Archange Michèle" class="team-photo">
+                    </div>
+                    <h4 class="team-name">S&#339;ur NIANGORAN Archange Michèle</h4>
+                    <p class="team-role">Vice-Présidente du CA</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/secretaire-general.jpg" alt="YOBOUET Lasme Alexandre-Marie" class="team-photo">
+                    </div>
+                    <h4 class="team-name">YOBOUET Lasme Alexandre-Marie</h4>
+                    <p class="team-role">Secrétaire Général</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/secretaire-executif.jpg" alt="LOUCOU Antoine Koffi" class="team-photo">
+                    </div>
+                    <h4 class="team-name">LOUCOU Antoine Koffi</h4>
+                    <p class="team-role">Secrétaire Exécutif</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/conseiller-medical.jpg" alt="Dr N'DA Koffi Denis" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Dr N'DA Koffi Denis</h4>
+                    <p class="team-role">Conseiller Médical</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/conseillere-medicale.jpg" alt="Dr LOUCOU Nora Reine" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Dr LOUCOU Nora Reine</h4>
+                    <p class="team-role">Conseillère Médicale</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/sandrine-loucou.jpg" alt="Sandrine LOUCOU" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Sandrine LOUCOU</h4>
+                    <p class="team-role">Conseillère des Affaires Internationales</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Direction Exécutive -->
+    <section class="equipe-section">
+        <div class="container">
+            <div class="equipe-section-title">
+                <h2>Direction Exécutive</h2>
+                <div class="title-bar"></div>
+            </div>
+            <div class="team-grid" style="max-width:500px;margin:0 auto;">
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/directrice-executive.jpg" alt="Mme BAKAYOKO Rokia" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Mme BAKAYOKO Rokia</h4>
+                    <p class="team-role">Directrice Exécutive</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/drh-konan.jpg" alt="KONAN Koffi Geoffroy" class="team-photo">
+                    </div>
+                    <h4 class="team-name">KONAN Koffi Geoffroy</h4>
+                    <p class="team-role">Directeur des Ressources Humaines</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top"><div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <div class="footer-logo"><img src="images/logo.png" alt="HOUKABENIAN" width="44" height="44"><span>HOUKABENIAN</span></div>
+                <p>« Aidons-les » — ONG au service des nourrices, bébés et seniors depuis plus de 10 ans.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col"><h4>Navigation</h4><ul>
+                <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                <li><a href="programmes.html">Programmes</a></li>
+                <li><a href="benevolat.html">Bénévolat</a></li>
+                <li><a href="activites.html">Activités</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+            </ul></div>
+            <div class="footer-col"><h4>Programmes</h4><ul>
+                <li><a href="programmes.html#koro">Kôrô — Seniors</a></li>
+                <li><a href="programmes.html#blatha">Blatha — Mères</a></li>
+                <li><a href="programmes.html#boudchou">Boud'chou — Enfants</a></li>
+            </ul></div>
+            <div class="footer-col"><h4>Contact</h4><ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i> Cocody, Riviera-Bonoumin Est, Abidjan</li>
+                <li><i class="fas fa-envelope"></i> houkabenian@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +225 27 22 59 43 88</li>
+            </ul></div>
+        </div></div>
+        <div class="footer-bottom"><div class="container footer-bottom-inner">
+            <p>&copy; 2026 HOUKABENIAN. Tous droits réservés.</p>
+            <div class="footer-links"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div>
+        </div></div>
+    </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            });
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+
+</body>
+</html>
