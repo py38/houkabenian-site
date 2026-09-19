@@ -520,6 +520,7 @@
     <div class="tab-nav">
         <button class="tab-btn active" data-tab="histoire"><i class="fas fa-book-open"></i>Notre Histoire</button>
         <button class="tab-btn" data-tab="mission"><i class="fas fa-bullseye"></i>Notre Mission</button>
+        <button class="tab-btn" data-tab="vision"><i class="fas fa-eye"></i>Notre Vision</button>
         <button class="tab-btn" data-tab="valeurs"><i class="fas fa-gem"></i>Nos Valeurs</button>
     </div>
 
@@ -539,14 +540,9 @@
                             </div>
                         </div>
                         <div class="histoire-content">
-                            <span class="section-tag">Qui sommes-nous</span>
                             <h2>Notre Histoire</h2>
                             <p>L'ONG HOUKABENIAN est une organisation non gouvernementale cr&eacute;&eacute;e le 25 janvier 2015 qui &oelig;uvre pour le bien-&ecirc;tre des seniors, les nourrices et des b&eacute;b&eacute;s par diverses actions sociales.</p>
                             <p>L'ONG Houkabenian est pr&eacute;sid&eacute;e par Madame LOUCOU Madeleine.</p>
-                            <div class="vision-box">
-                                <h4><i class="fas fa-eye"></i> Notre Vision</h4>
-                                <p>Favoriser un partenariat social de r&eacute;f&eacute;rence pour garantir le bien-&ecirc;tre de nos cibles&hellip;</p>
-                            </div>
                         </div>
                     </div>
                     <div class="histoire-stats">
@@ -608,6 +604,42 @@
                             </div>
                             <h3>Briser l'isolement</h3>
                             <p>Cr&eacute;er du lien social et interg&eacute;n&eacute;rationnel pour lutter contre l'isolement des personnes &acirc;g&eacute;es.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Notre Vision -->
+        <div class="tab-panel" id="tab-vision">
+            <section class="mission-section">
+                <div class="container">
+                    <div class="mission-header">
+                        <span class="section-tag" style="background:linear-gradient(135deg, var(--orange), #F7941D);">Ce que nous visons</span>
+                        <h2>Notre Vision</h2>
+                        <p>Favoriser un partenariat social de r&eacute;f&eacute;rence pour garantir le bien-&ecirc;tre de nos cibles et b&acirc;tir une soci&eacute;t&eacute; plus solidaire.</p>
+                    </div>
+                    <div class="mission-grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="mission-card">
+                            <div class="mission-icon" style="background:var(--orange);">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Partenariat social de r&eacute;f&eacute;rence</h3>
+                            <p>Devenir l'organisation de r&eacute;f&eacute;rence en mati&egrave;re de soutien aux populations vuln&eacute;rables en C&ocirc;te d'Ivoire.</p>
+                        </div>
+                        <div class="mission-card">
+                            <div class="mission-icon" style="background:var(--teal);">
+                                <i class="fas fa-globe-africa"></i>
+                            </div>
+                            <h3>Impact durable</h3>
+                            <p>Cr&eacute;er un impact positif et durable sur les communaut&eacute;s en favorisant l'autonomie et la dignit&eacute; de chaque individu.</p>
+                        </div>
+                        <div class="mission-card">
+                            <div class="mission-icon" style="background:var(--green);">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>Soci&eacute;t&eacute; solidaire</h3>
+                            <p>Contribuer &agrave; b&acirc;tir une soci&eacute;t&eacute; o&ugrave; chacun peut vieillir dans la dignit&eacute; et o&ugrave; chaque enfant a sa chance.</p>
                         </div>
                     </div>
                 </div>
@@ -755,7 +787,7 @@
         // ---- Hash-based navigation ----
         function handleHash() {
             var hash = window.location.hash.replace('#', '');
-            var validTabs = ['histoire', 'mission', 'valeurs'];
+            var validTabs = ['histoire', 'mission', 'vision', 'valeurs'];
             if (validTabs.indexOf(hash) !== -1) {
                 switchTab(hash);
             }

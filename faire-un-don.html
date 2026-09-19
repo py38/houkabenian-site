@@ -348,17 +348,152 @@
             color: #fff;
         }
 
+        /* Accordion */
+        .don-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+        }
+        .don-accordion-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px;
+            background: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--navy);
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        .don-accordion-header:hover { background: var(--gray-50); }
+        .don-accordion-header span { display: flex; align-items: center; gap: 12px; }
+        .don-accordion-header span i { color: var(--orange); }
+        .don-accordion-icon { color: var(--orange); transition: transform 0.3s; }
+        .don-accordion-header.active .don-accordion-icon { transform: rotate(180deg); }
+        .don-accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: var(--gray-50);
+        }
+        .don-accordion-body.open { max-height: 600px; }
+        .don-sub-items { padding: 0 32px 24px; }
+        .don-sub-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+        .don-sub-item:last-child { margin-bottom: 0; }
+        .don-sub-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            background: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            transition: all 0.3s;
+        }
+        .don-sub-header:hover { background: rgba(247,148,29,0.05); }
+        .don-sub-header span { display: flex; align-items: center; gap: 10px; }
+        .don-sub-header span i { color: var(--orange); }
+        .don-sub-icon { color: var(--gray-400); transition: transform 0.3s; font-size: 0.8rem; }
+        .don-sub-header.active .don-sub-icon { transform: rotate(180deg); }
+        .don-sub-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .don-sub-content.open { max-height: 200px; }
+        .don-sub-content p {
+            padding: 0 24px 18px;
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Action buttons */
+        .action-buttons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .action-btn-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--gray-200);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .action-btn-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .action-btn-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .action-btn-card h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .action-btn-card p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .action-btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: gap 0.3s;
+        }
+        .action-btn-card:hover .action-btn-link { gap: 12px; }
+
         @media (max-width: 1024px) {
-            .pourquoi-grid, .don-layout { grid-template-columns: 1fr; }
-            .raisons-grid { grid-template-columns: 1fr; }
+            .pourquoi-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .page-hero h1 { font-size: 2rem; }
-            .impact-grid { grid-template-columns: 1fr; }
             .don-stats { grid-template-columns: 1fr; }
-            .don-form-card { padding: 28px 20px; }
-            .don-amounts { grid-template-columns: repeat(2, 1fr); }
-            .payment-methods-grid { grid-template-columns: 1fr; }
+            .action-buttons-grid { grid-template-columns: 1fr; }
+            .don-accordion-header { font-size: 1.1rem; padding: 20px 20px; }
+            .don-sub-items { padding: 0 16px 16px; }
         }
     </style>
 </head>
@@ -433,26 +568,39 @@
         </div>
     </section>
 
-    <!-- Section 2: A quoi servent vos dons -->
+    <!-- Section 2: A quoi servent vos dons (Accordion) -->
     <section class="don-section">
         <div class="container">
-            <div class="don-section-title">
-                <h2>À quoi servent vos dons ?</h2>
-                <div class="title-bar"></div>
-            </div>
-            <div class="raisons-grid">
-                <div class="raison-card">
-                    <div class="raison-icon" style="background:var(--gradient-warm);"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3>Financer nos programmes</h3>
-                    <p>Votre appui financier finance des programmes qui contribuent depuis 3 ans à réaliser sa mission : offrir à des personnes âgées de 60 ans ou plus, isolées et vulnérables, un accompagnement personnalisé.</p>
+            <div class="don-accordion">
+                <button class="don-accordion-header" id="accordionDons">
+                    <span><i class="fas fa-hand-holding-heart"></i> À quoi servent vos dons ?</span>
+                    <i class="fas fa-chevron-down don-accordion-icon"></i>
+                </button>
+                <div class="don-accordion-body" id="accordionDonsBody">
+                    <div class="don-sub-items">
+                        <div class="don-sub-item" id="subFinancer">
+                            <button class="don-sub-header">
+                                <span><i class="fas fa-project-diagram"></i> Financer nos programmes</span>
+                                <i class="fas fa-chevron-down don-sub-icon"></i>
+                            </button>
+                            <div class="don-sub-content">
+                                <p>Votre appui financier finance des programmes qui contribuent depuis 3 ans à réaliser sa mission : offrir à des personnes âgées de 60 ans ou plus, isolées et vulnérables, un accompagnement personnalisé.</p>
+                            </div>
+                        </div>
+                        <div class="don-sub-item" id="subDifference">
+                            <button class="don-sub-header">
+                                <span><i class="fas fa-heart"></i> Faire une réelle différence</span>
+                                <i class="fas fa-chevron-down don-sub-icon"></i>
+                            </button>
+                            <div class="don-sub-content">
+                                <p>Votre don fera une réelle différence dans la vie des aînés seuls. De plus, il garantit la pérennité de notre oeuvre et contribue à briser l'isolement des aînés.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="raison-card">
-                    <div class="raison-icon" style="background:var(--gradient-cool);"><i class="fas fa-heart"></i></div>
-                    <h3>Faire une réelle différence</h3>
-                    <p>Votre don fera une réelle différence dans la vie des aînés seuls. De plus, il garantit la pérennité de notre oeuvre et contribue à briser l'isolement des aînés.</p>
-                </div>
             </div>
-            <div style="text-align:center;max-width:700px;margin:0 auto 40px;">
+
+            <div style="text-align:center;max-width:700px;margin:40px auto;">
                 <p style="color:var(--gray-500);line-height:1.7;font-size:0.95rem;">HOUKABENIAN vit de la générosité du grand public, des entreprises et des fondations. Les subventions gouvernementales représentent moins de 0,2 % du revenu total de l'ONG.</p>
             </div>
             <div class="don-stats">
@@ -472,184 +620,30 @@
         </div>
     </section>
 
-    <!-- Section 3: Formulaire de don -->
-    <section class="don-section" id="formulaire">
+    <!-- Section 3: Boutons d'action -->
+    <section class="don-section" style="background:var(--gray-50);">
         <div class="container">
             <div class="don-section-title">
-                <h2>Faites votre don</h2>
+                <h2>Passez à l'action</h2>
                 <div class="title-bar"></div>
-                <p>Chaque contribution compte. Choisissez le montant qui vous convient.</p>
+                <p>Choisissez comment contribuer à notre mission.</p>
             </div>
-
-            <!-- Impact cards -->
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <div class="impact-icon"><i class="fas fa-syringe"></i></div>
-                    <div class="impact-amount">5 000 <small>FCFA</small></div>
-                    <div class="impact-desc">Vaccin pour un enfant</div>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-icon"><i class="fas fa-heart"></i></div>
-                    <div class="impact-amount">15 000 <small>FCFA</small></div>
-                    <div class="impact-desc">Suivi prénatal d'une mère</div>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div class="impact-amount">25 000 <small>FCFA</small></div>
-                    <div class="impact-desc">1 mois de soutien à un senior</div>
-                </div>
-            </div>
-
-            <!-- Don form -->
-            <div class="don-layout">
-                <div class="don-text">
-                    <h3>Votre générosité change des vies</h3>
-                    <p>Que vous donniez 5 000 ou 50 000 FCFA, votre contribution a un impact direct sur les communautés les plus vulnérables de Côte d'Ivoire.</p>
-                    <p>Chaque franc compte et nous permet de continuer notre mission auprès des seniors isolés, des mères en difficulté et des enfants en situation de vulnérabilité.</p>
-                    <div class="grades-link">
-                        <a href="grades.html"><i class="fas fa-trophy"></i> Voir les grades de donateurs</a>
-                    </div>
-                </div>
-
-                <div class="don-form-card">
-                    <div class="don-form-header">
-                        <h3><i class="fas fa-heart" style="color:var(--red);"></i> Formulaire de don</h3>
-                        <p>Remplissez le formulaire ci-dessous</p>
-                    </div>
-                    <form id="donForm">
-                        <!-- Montants -->
-                        <div class="don-amounts">
-                            <button type="button" class="don-amount" data-amount="5000">5 000 F</button>
-                            <button type="button" class="don-amount" data-amount="10000">10 000 F</button>
-                            <button type="button" class="don-amount active" data-amount="25000">25 000 F</button>
-                            <button type="button" class="don-amount" data-amount="50000">50 000 F</button>
-                        </div>
-                        <div class="don-custom">
-                            <label for="customAmount">Ou saisissez un montant libre (FCFA)</label>
-                            <input type="number" id="customAmount" placeholder="Montant en FCFA" min="1000">
-                        </div>
-
-                        <!-- Fréquence -->
-                        <div class="don-frequency">
-                            <button type="button" class="don-freq active" data-freq="once"><i class="fas fa-gift"></i> Don unique</button>
-                            <button type="button" class="don-freq" data-freq="monthly"><i class="fas fa-sync-alt"></i> Don mensuel</button>
-                        </div>
-
-                        <!-- Champs -->
-                        <div class="don-fields">
-                            <input type="text" name="nom" placeholder="Votre nom complet" required>
-                            <input type="email" name="email" placeholder="Votre email" required>
-                            <input type="tel" name="telephone" placeholder="Votre téléphone" required>
-                        </div>
-
-                        <!-- Anonyme -->
-                        <div class="don-anonyme">
-                            <label class="don-anonyme-label">
-                                <input type="checkbox" id="donAnonyme">
-                                <div class="don-anonyme-check"><i class="fas fa-user-secret"></i></div>
-                                <span>Don anonyme<small>Votre nom ne sera pas affiché</small></span>
-                            </label>
-                        </div>
-
-                        <!-- Programme -->
-                        <div class="don-programme-choice">
-                            <label for="donProgramme">Affecter votre don à un programme</label>
-                            <select name="programme" id="donProgramme">
-                                <option value="general">Fonds général</option>
-                                <option value="koro">Kôrô — Seniors</option>
-                                <option value="blatha">Blatha — Mères</option>
-                                <option value="boudchou">Boud'chou — Enfants</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary don-submit">
-                            <i class="fas fa-heart"></i> Donner 25 000 FCFA
-                        </button>
-                        <p class="don-secure"><i class="fas fa-lock"></i> Vos informations sont sécurisées et confidentielles</p>
-                    </form>
-                </div>
+            <div class="action-buttons-grid">
+                <a href="formulaire-don.html" class="action-btn-card">
+                    <div class="action-btn-icon" style="background:var(--gradient-warm);"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Faire un don</h3>
+                    <p>Remplissez le formulaire de don et découvrez les grades de donateurs</p>
+                    <span class="action-btn-link">Accéder au formulaire <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="comment-donner.html" class="action-btn-card">
+                    <div class="action-btn-icon" style="background:var(--gradient-cool);"><i class="fas fa-wallet"></i></div>
+                    <h3>Comment donner ?</h3>
+                    <p>Découvrez les moyens de paiement disponibles pour effectuer votre don</p>
+                    <span class="action-btn-link">Voir les moyens de paiement <i class="fas fa-arrow-right"></i></span>
+                </a>
             </div>
         </div>
     </section>
-
-    <!-- Comment donner -->
-    <section class="payment-section">
-        <div class="container">
-            <div class="don-section-title">
-                <h2>Comment donner ?</h2>
-                <div class="title-bar"></div>
-                <p>Plusieurs moyens de paiement sont disponibles pour effectuer votre don.</p>
-            </div>
-            <div class="payment-methods-grid">
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:#FF6600;"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="payment-card-info">
-                        <strong>Orange Money</strong>
-                        <span>+225 07 59 95 45 24</span>
-                    </div>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:#FFCC00;color:#333;"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="payment-card-info">
-                        <strong>MTN Mobile Money</strong>
-                        <span>+225 01 07 07 44 70 46</span>
-                    </div>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:#1DC9FF;"><i class="fas fa-wave-square"></i></div>
-                    <div class="payment-card-info">
-                        <strong>Wave</strong>
-                        <span>+225 07 59 95 45 24</span>
-                    </div>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:var(--navy);"><i class="fas fa-university"></i></div>
-                    <div class="payment-card-info">
-                        <strong>Virement / Chèque</strong>
-                        <span>+225 27 22 59 43 88</span>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center;margin-top:30px;">
-                <p style="color:var(--gray-400);font-size:0.88rem;">Vous pouvez aussi faire un don en nature (matériel, mobilier) ou par dépôt direct.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Confirmation Modal -->
-    <div class="modal-overlay" id="donConfirmModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="document.getElementById('donConfirmModal').classList.remove('active');document.body.style.overflow='';">&times;</button>
-            <div class="modal-icon modal-icon-success"><i class="fas fa-check-circle"></i></div>
-            <h3>Merci pour votre générosité !</h3>
-            <p>Votre don a été enregistré avec succès.</p>
-            <div class="modal-donor-info" id="modalDonorInfo"></div>
-            <div class="modal-payment-info">
-                <h4><i class="fas fa-wallet"></i> Effectuez votre paiement via :</h4>
-                <div class="payment-methods">
-                    <div class="payment-method">
-                        <div class="payment-method-icon" style="background:#FF6600;"><i class="fas fa-mobile-alt"></i></div>
-                        <div><strong>Orange Money</strong><div class="payment-number">+225 07 59 95 45 24</div></div>
-                    </div>
-                    <div class="payment-method">
-                        <div class="payment-method-icon" style="background:#FFCC00;color:#333;"><i class="fas fa-mobile-alt"></i></div>
-                        <div><strong>MTN Mobile Money</strong><div class="payment-number">+225 01 07 07 44 70 46</div></div>
-                    </div>
-                    <div class="payment-method">
-                        <div class="payment-method-icon" style="background:#1DC9FF;"><i class="fas fa-wave-square"></i></div>
-                        <div><strong>Wave</strong><div class="payment-number">+225 07 59 95 45 24</div></div>
-                    </div>
-                    <div class="payment-method">
-                        <div class="payment-method-icon" style="background:var(--navy);"><i class="fas fa-university"></i></div>
-                        <div><strong>Virement bancaire / Chèque</strong><div class="payment-number">Contactez-nous au +225 27 22 59 43 88</div></div>
-                    </div>
-                </div>
-                <div class="payment-note">
-                    <i class="fas fa-info-circle"></i> Mentionnez votre nom et le programme choisi lors du paiement. Vous recevrez un reçu par email.
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -715,91 +709,18 @@
         });
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // Amount buttons
-        document.querySelectorAll('.don-amount').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.don-amount').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById('customAmount').value = '';
-                updateSubmitBtn();
+        // Accordion: A quoi servent vos dons
+        document.getElementById('accordionDons').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('accordionDonsBody').classList.toggle('open');
+        });
+
+        // Sub-items accordion
+        document.querySelectorAll('.don-sub-header').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                this.nextElementSibling.classList.toggle('open');
             });
-        });
-
-        // Custom amount clears active button
-        document.getElementById('customAmount').addEventListener('input', function() {
-            if (this.value) {
-                document.querySelectorAll('.don-amount').forEach(b => b.classList.remove('active'));
-            }
-            updateSubmitBtn();
-        });
-
-        // Frequency toggle
-        document.querySelectorAll('.don-freq').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.don-freq').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            });
-        });
-
-        // Update submit button text
-        function updateSubmitBtn() {
-            const selectedAmount = document.querySelector('.don-amount.active');
-            const customAmount = document.getElementById('customAmount').value;
-            const montant = customAmount || (selectedAmount ? selectedAmount.dataset.amount : '25000');
-            const btn = document.querySelector('.don-submit');
-            btn.innerHTML = '<i class="fas fa-heart"></i> Donner ' + Number(montant).toLocaleString('fr-FR') + ' FCFA';
-        }
-
-        // Form submit
-        document.getElementById('donForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const selectedAmount = document.querySelector('.don-amount.active');
-            const customAmount = document.getElementById('customAmount').value;
-            const montant = customAmount || (selectedAmount ? selectedAmount.dataset.amount : '25000');
-            const selectedFreq = document.querySelector('.don-freq.active');
-
-            const data = {
-                sheet: 'Dons',
-                nom: form.nom.value,
-                email: form.email.value,
-                telephone: form.telephone.value,
-                montant: montant,
-                frequence: selectedFreq ? selectedFreq.dataset.freq : 'once',
-                programme: form.programme.value
-            };
-            if (document.getElementById('donAnonyme').checked) data.nom = 'Anonyme';
-
-            const btn = form.querySelector('.don-submit');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
-
-            fetch('https://script.google.com/macros/s/AKfycbzCn6QrBORXWYdHTKbtAXSHK4I5A804-4nvQ-VKYQL-GeKvO_GC2EwUdIWqafpA9fFuFw/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify(data)
-            }).then(() => {
-                document.getElementById('donConfirmModal').classList.add('active');
-                document.getElementById('modalDonorInfo').innerHTML = 'Don de <strong>' + Number(montant).toLocaleString('fr-FR') + ' FCFA</strong> enregistré au nom de <strong>' + data.nom + '</strong>';
-                document.body.style.overflow = 'hidden';
-                form.reset();
-                // Reset active states
-                document.querySelectorAll('.don-amount').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.don-amount')[2].classList.add('active');
-                document.querySelectorAll('.don-freq').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.don-freq')[0].classList.add('active');
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-heart"></i> Donner 25 000 FCFA';
-            });
-        });
-
-        // Close modal on overlay click
-        document.getElementById('donConfirmModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('active');
-                document.body.style.overflow = '';
-            }
         });
     </script>
 
