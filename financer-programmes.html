@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financer nos programmes — HOUKABENIAN</title>
+    <meta name="description" content="D&eacute;couvrez comment vos dons financent les programmes de HOUKABENIAN pour accompagner les personnes &acirc;g&eacute;es isol&eacute;es.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #F7941D 0%, #E8572A 100%);
+            color: #fff;
+            padding: 40px 0 80px;
+            text-align: center;
+        }
+        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .page-hero p { font-size: 1.15rem; max-width: 620px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+        .content-section { padding: 80px 0; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--orange); font-weight: 600; margin-bottom: 30px; transition: gap 0.3s; }
+        .back-link:hover { gap: 12px; color: var(--red); }
+        .content-body { max-width: 800px; margin: 0 auto; }
+        .content-body h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 20px; }
+        .content-body p { color: var(--gray-500); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+        .programme-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+        .programme-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px 24px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+        .programme-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .programme-card-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #fff; margin: 0 auto 16px; }
+        .programme-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 8px; }
+        .programme-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.6; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(247,148,29,0.08), rgba(0,167,157,0.08));
+            border-left: 4px solid var(--orange);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 24px 28px;
+            margin: 30px 0;
+        }
+        .highlight-box p { margin-bottom: 0; color: var(--gray-600); }
+        .cta-section { text-align: center; margin-top: 50px; padding: 40px; background: var(--gray-50); border-radius: var(--radius-lg); }
+        .cta-section h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 12px; }
+        .cta-section p { color: var(--gray-500); margin-bottom: 20px; }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 2rem; }
+            .programme-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header scrolled" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="images/logo.png" alt="HOUKABENIAN" width="52" height="52"></div>
+                <div class="logo-text"><span class="logo-name">HOUKABENIAN</span><span class="logo-tagline">&laquo; Aidons-les &raquo;</span></div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous</a>
+                <a href="programmes.html" class="nav-link">Programmes</a>
+                <a href="benevolat.html" class="nav-link">B&eacute;n&eacute;volat</a>
+                <a href="activites.html" class="nav-link">Activit&eacute;s</a>
+                <a href="actualites.html" class="nav-link">Actualit&eacute;s</a>
+                <a href="equipe.html" class="nav-link">&Eacute;quipe</a>
+            </nav>
+            <div class="header-actions">
+                <a href="faire-un-don.html" class="btn btn-primary btn-sm">Faire un don</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous</a>
+            <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+            <a href="benevolat.html" class="mobile-nav-link">B&eacute;n&eacute;volat</a>
+            <a href="activites.html" class="mobile-nav-link">Activit&eacute;s</a>
+            <a href="actualites.html" class="mobile-nav-link">Actualit&eacute;s</a>
+            <a href="equipe.html" class="mobile-nav-link">&Eacute;quipe</a>
+            <div class="mobile-nav-cta"><a href="faire-un-don.html" class="btn btn-primary">Faire un don</a></div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Financer nos programmes</h1>
+            <p>Votre appui financier permet de r&eacute;aliser notre mission aupr&egrave;s des populations vuln&eacute;rables.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <a href="a-quoi-servent-vos-dons.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour</a>
+            <div class="content-body">
+                <h2>Comment vos dons financent nos programmes</h2>
+                <p>Votre appui financier finance des programmes qui contribuent depuis 3 ans &agrave; r&eacute;aliser sa mission : offrir &agrave; des personnes &acirc;g&eacute;es de 60 ans ou plus, isol&eacute;es et vuln&eacute;rables, un accompagnement personnalis&eacute;.</p>
+                <p>Gr&acirc;ce &agrave; votre g&eacute;n&eacute;rosit&eacute;, nous pouvons maintenir et d&eacute;velopper trois programmes essentiels qui touchent les populations les plus fragiles de C&ocirc;te d'Ivoire.</p>
+
+                <div class="programme-cards">
+                    <div class="programme-card">
+                        <div class="programme-card-icon" style="background:#E8572A;"><i class="fas fa-user-friends"></i></div>
+                        <h3>K&ocirc;r&ocirc; &mdash; Seniors</h3>
+                        <p>Accompagnement des personnes &acirc;g&eacute;es isol&eacute;es pour briser la solitude et pr&eacute;server leur dignit&eacute;.</p>
+                    </div>
+                    <div class="programme-card">
+                        <div class="programme-card-icon" style="background:#F7941D;"><i class="fas fa-baby"></i></div>
+                        <h3>Blatha &mdash; M&egrave;res</h3>
+                        <p>Soutien aux m&egrave;res de la grossesse jusqu'aux premiers mois de l'enfant.</p>
+                    </div>
+                    <div class="programme-card">
+                        <div class="programme-card-icon" style="background:#00A79D;"><i class="fas fa-child"></i></div>
+                        <h3>Boud'chou &mdash; Enfants</h3>
+                        <p>Protection et &eacute;veil des tout-petits en situation de vuln&eacute;rabilit&eacute;.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Chaque franc compte.</strong> HOUKABENIAN vit de la g&eacute;n&eacute;rosit&eacute; du grand public, des entreprises et des fondations. Les subventions gouvernementales repr&eacute;sentent moins de 0,2 % du revenu total de l'ONG.</p>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Pr&ecirc;t &agrave; soutenir nos programmes ?</h3>
+                    <p>Faites un don d&egrave;s maintenant et contribuez directement &agrave; nos actions.</p>
+                    <a href="formulaire-don.html" class="btn btn-primary"><i class="fas fa-hand-holding-heart"></i> Faire un don</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top"><div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <div class="footer-logo"><img src="images/logo.png" alt="HOUKABENIAN" width="44" height="44"><span>HOUKABENIAN</span></div>
+                <p>&laquo; Aidons-les &raquo; &mdash; ONG au service des nourrices, b&eacute;b&eacute;s et seniors depuis plus de 10 ans.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col"><h4>Navigation</h4><ul>
+                <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                <li><a href="programmes.html">Programmes</a></li>
+                <li><a href="benevolat.html">B&eacute;n&eacute;volat</a></li>
+                <li><a href="activites.html">Activit&eacute;s</a></li>
+                <li><a href="actualites.html">Actualit&eacute;s</a></li>
+            </ul></div>
+            <div class="footer-col"><h4>Programmes</h4><ul>
+                <li><a href="programmes.html#koro">K&ocirc;r&ocirc; &mdash; Seniors</a></li>
+                <li><a href="programmes.html#blatha">Blatha &mdash; M&egrave;res</a></li>
+                <li><a href="programmes.html#boudchou">Boud'chou &mdash; Enfants</a></li>
+            </ul></div>
+            <div class="footer-col"><h4>Contact</h4><ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i> Cocody, Riviera-Bonoumin Est, Abidjan</li>
+                <li><i class="fas fa-envelope"></i> houkabenian@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +225 27 22 59 43 88</li>
+            </ul></div>
+        </div></div>
+        <div class="footer-bottom"><div class="container footer-bottom-inner">
+            <p>&copy; 2026 HOUKABENIAN. Tous droits r&eacute;serv&eacute;s.</p>
+            <div class="footer-links"><a href="#">Mentions l&eacute;gales</a><a href="#">Politique de confidentialit&eacute;</a></div>
+        </div></div>
+    </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileNav.classList.toggle('active'); document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : ''; });
+            mobileNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); mobileNav.classList.remove('active'); document.body.style.overflow = ''; }); });
+        }
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => { backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none'; });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>

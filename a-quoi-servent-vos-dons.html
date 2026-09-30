@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comment donner — HOUKABENIAN</title>
-    <meta name="description" content="D&eacute;couvrez les moyens de paiement disponibles pour faire un don &agrave; HOUKABENIAN : Orange Money, MTN, Wave, virement bancaire.">
+    <title>&Agrave; quoi servent vos dons — HOUKABENIAN</title>
+    <meta name="description" content="D&eacute;couvrez comment vos dons financent les programmes de HOUKABENIAN et font une r&eacute;elle diff&eacute;rence.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .page-hero {
-            background: linear-gradient(135deg, #00A79D 0%, #1B3A5C 100%);
+            background: linear-gradient(135deg, #00A79D 0%, #8DC63F 100%);
             color: #fff;
             padding: 40px 0 80px;
             text-align: center;
@@ -30,9 +30,7 @@
             opacity: 0.9;
             line-height: 1.7;
         }
-        .payment-section {
-            padding: 80px 0;
-        }
+        .content-section { padding: 80px 0; }
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -43,103 +41,119 @@
             transition: gap 0.3s;
         }
         .back-link:hover { gap: 12px; color: var(--red); }
-        .payment-intro {
+        .intro-text {
             text-align: center;
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto 50px;
         }
-        .payment-intro h2 {
+        .intro-text h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             color: var(--navy);
             margin-bottom: 12px;
         }
-        .payment-intro p {
+        .intro-text p {
             color: var(--gray-500);
             line-height: 1.7;
         }
-        .payment-methods-grid {
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--gray-200);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .card-link:hover {
+            border-color: var(--orange);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .card-link-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .card-link h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .card-link p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .card-link-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: gap 0.3s;
+        }
+        .card-link:hover .card-link-arrow { gap: 12px; }
+
+        .stats-section {
+            padding: 60px 0;
+            background: var(--gray-50);
+        }
+        .don-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             max-width: 800px;
             margin: 0 auto;
         }
-        .payment-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 28px 24px;
+        .don-stat {
+            text-align: center;
+            padding: 30px 20px;
             background: var(--white);
             border-radius: var(--radius-lg);
-            border: 2px solid var(--gray-200);
-            transition: all 0.3s;
+            border: 1px solid var(--gray-200);
         }
-        .payment-card:hover {
-            border-color: var(--orange);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+        .don-stat .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-warm);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .payment-card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-        .payment-card-info strong {
-            display: block;
-            color: var(--navy);
-            font-size: 1.05rem;
-            margin-bottom: 6px;
-        }
-        .payment-card-info span {
-            font-size: 0.95rem;
+        .don-stat .stat-label {
+            font-size: 0.85rem;
             color: var(--gray-500);
-            font-family: 'Courier New', monospace;
-        }
-        .payment-note {
-            text-align: center;
-            margin-top: 40px;
-            padding: 24px;
-            background: rgba(247,148,29,0.06);
-            border-radius: var(--radius-lg);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .payment-note p {
-            color: var(--gray-500);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .payment-note i {
-            color: var(--orange);
-            margin-right: 8px;
-        }
-        .don-cta {
-            text-align: center;
-            margin-top: 50px;
-        }
-        .don-cta a {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            margin-top: 8px;
         }
 
         @media (max-width: 768px) {
             .page-hero h1 { font-size: 2rem; }
-            .payment-methods-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .don-stats { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <header class="header scrolled" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -172,67 +186,58 @@
         </div>
     </div>
 
-    <!-- Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Comment donner ?</h1>
-            <p>Plusieurs moyens de paiement sont disponibles pour effectuer votre don.</p>
+            <h1>&Agrave; quoi servent vos dons ?</h1>
+            <p>D&eacute;couvrez comment votre g&eacute;n&eacute;rosit&eacute; finance nos programmes et change des vies.</p>
         </div>
     </section>
 
-    <!-- Payment Methods -->
-    <section class="payment-section">
+    <section class="content-section">
         <div class="container">
             <a href="faire-un-don.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour</a>
 
-            <div class="payment-intro">
-                <h2>Moyens de paiement</h2>
-                <p>Choisissez le moyen de paiement qui vous convient le mieux pour effectuer votre don.</p>
+            <div class="intro-text">
+                <h2>Votre don fait la diff&eacute;rence</h2>
+                <p>HOUKABENIAN vit de la g&eacute;n&eacute;rosit&eacute; du grand public, des entreprises et des fondations. Les subventions gouvernementales repr&eacute;sentent moins de 0,2 % du revenu total de l'ONG.</p>
             </div>
 
-            <div class="payment-methods-grid">
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:#FF6600;"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="payment-card-info">
-                        <strong>Orange Money</strong>
-                        <span>+225 07 59 95 45 24</span>
-                    </div>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:#FFCC00;color:#333;"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="payment-card-info">
-                        <strong>MTN Mobile Money</strong>
-                        <span>+225 01 07 07 44 70 46</span>
-                    </div>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:#1DC9FF;"><i class="fas fa-wave-square"></i></div>
-                    <div class="payment-card-info">
-                        <strong>Wave</strong>
-                        <span>+225 07 59 95 45 24</span>
-                    </div>
-                </div>
-                <div class="payment-card">
-                    <div class="payment-card-icon" style="background:var(--navy);"><i class="fas fa-university"></i></div>
-                    <div class="payment-card-info">
-                        <strong>Virement / Ch&egrave;que</strong>
-                        <span>+225 27 22 59 43 88</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="payment-note">
-                <p><i class="fas fa-info-circle"></i> Mentionnez votre nom et le programme choisi lors du paiement. Vous recevrez un re&ccedil;u par email.</p>
-                <p style="margin-top:12px;"><i class="fas fa-gift"></i> Vous pouvez aussi faire un don en nature (mat&eacute;riel, mobilier) ou par d&eacute;p&ocirc;t direct.</p>
-            </div>
-
-            <div class="don-cta">
-                <a href="formulaire-don.html" class="btn btn-primary"><i class="fas fa-hand-holding-heart"></i> Faire un don maintenant</a>
+            <div class="cards-grid">
+                <a href="financer-programmes.html" class="card-link">
+                    <div class="card-link-icon" style="background:var(--gradient-warm);"><i class="fas fa-project-diagram"></i></div>
+                    <h3>Financer nos programmes</h3>
+                    <p>Votre appui financier finance des programmes d'accompagnement personnalis&eacute; pour les personnes &acirc;g&eacute;es isol&eacute;es et vuln&eacute;rables.</p>
+                    <span class="card-link-arrow">D&eacute;couvrir <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="faire-difference.html" class="card-link">
+                    <div class="card-link-icon" style="background:var(--gradient-cool);"><i class="fas fa-heart"></i></div>
+                    <h3>Faire une r&eacute;elle diff&eacute;rence</h3>
+                    <p>Votre don garantit la p&eacute;rennit&eacute; de notre &oelig;uvre et contribue &agrave; briser l'isolement des a&icirc;n&eacute;s.</p>
+                    <span class="card-link-arrow">D&eacute;couvrir <i class="fas fa-arrow-right"></i></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="don-stats">
+                <div class="don-stat">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Des a&icirc;n&eacute;s sont &agrave; risque de souffrir d'isolement</div>
+                </div>
+                <div class="don-stat">
+                    <div class="stat-number">0,2%</div>
+                    <div class="stat-label">De subventions gouvernementales dans notre revenu</div>
+                </div>
+                <div class="don-stat">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Ann&eacute;es au service des communaut&eacute;s vuln&eacute;rables</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-top"><div class="container footer-grid">
             <div class="footer-col footer-about">
@@ -289,11 +294,8 @@
             });
         }
         const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
-        });
+        window.addEventListener('scroll', () => { backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none'; });
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
-
 </body>
 </html>

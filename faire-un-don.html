@@ -22,7 +22,7 @@
         .page-hero {
             background: linear-gradient(135deg, #F7941D 0%, #E8572A 100%);
             color: #fff;
-            padding: 140px 0 80px;
+            padding: 40px 0 80px;
             text-align: center;
         }
         .page-hero h1 {
@@ -491,16 +491,14 @@
         @media (max-width: 768px) {
             .page-hero h1 { font-size: 2rem; }
             .don-stats { grid-template-columns: 1fr; }
-            .action-buttons-grid { grid-template-columns: 1fr; }
-            .don-accordion-header { font-size: 1.1rem; padding: 20px 20px; }
-            .don-sub-items { padding: 0 16px 16px; }
+            .action-buttons-grid { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <header class="header scrolled" id="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;">
+    <header class="header scrolled" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
                 <div class="logo-icon"><img src="images/logo.png" alt="HOUKABENIAN" width="52" height="52"></div>
@@ -568,59 +566,7 @@
         </div>
     </section>
 
-    <!-- Section 2: A quoi servent vos dons (Accordion) -->
-    <section class="don-section">
-        <div class="container">
-            <div class="don-accordion">
-                <button class="don-accordion-header" id="accordionDons">
-                    <span><i class="fas fa-hand-holding-heart"></i> À quoi servent vos dons ?</span>
-                    <i class="fas fa-chevron-down don-accordion-icon"></i>
-                </button>
-                <div class="don-accordion-body" id="accordionDonsBody">
-                    <div class="don-sub-items">
-                        <div class="don-sub-item" id="subFinancer">
-                            <button class="don-sub-header">
-                                <span><i class="fas fa-project-diagram"></i> Financer nos programmes</span>
-                                <i class="fas fa-chevron-down don-sub-icon"></i>
-                            </button>
-                            <div class="don-sub-content">
-                                <p>Votre appui financier finance des programmes qui contribuent depuis 3 ans à réaliser sa mission : offrir à des personnes âgées de 60 ans ou plus, isolées et vulnérables, un accompagnement personnalisé.</p>
-                            </div>
-                        </div>
-                        <div class="don-sub-item" id="subDifference">
-                            <button class="don-sub-header">
-                                <span><i class="fas fa-heart"></i> Faire une réelle différence</span>
-                                <i class="fas fa-chevron-down don-sub-icon"></i>
-                            </button>
-                            <div class="don-sub-content">
-                                <p>Votre don fera une réelle différence dans la vie des aînés seuls. De plus, il garantit la pérennité de notre oeuvre et contribue à briser l'isolement des aînés.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align:center;max-width:700px;margin:40px auto;">
-                <p style="color:var(--gray-500);line-height:1.7;font-size:0.95rem;">HOUKABENIAN vit de la générosité du grand public, des entreprises et des fondations. Les subventions gouvernementales représentent moins de 0,2 % du revenu total de l'ONG.</p>
-            </div>
-            <div class="don-stats">
-                <div class="don-stat">
-                    <div class="stat-number">30%</div>
-                    <div class="stat-label">Des aînés sont à risque de souffrir d'isolement</div>
-                </div>
-                <div class="don-stat">
-                    <div class="stat-number">0,2%</div>
-                    <div class="stat-label">De subventions gouvernementales dans notre revenu</div>
-                </div>
-                <div class="don-stat">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Années au service des communautés vulnérables</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: Boutons d'action -->
+    <!-- Section 2: Passez à l'action -->
     <section class="don-section" style="background:var(--gray-50);">
         <div class="container">
             <div class="don-section-title">
@@ -628,7 +574,13 @@
                 <div class="title-bar"></div>
                 <p>Choisissez comment contribuer à notre mission.</p>
             </div>
-            <div class="action-buttons-grid">
+            <div class="action-buttons-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <a href="a-quoi-servent-vos-dons.html" class="action-btn-card">
+                    <div class="action-btn-icon" style="background:linear-gradient(135deg, #00A79D, #8DC63F);"><i class="fas fa-search-dollar"></i></div>
+                    <h3>À quoi servent vos dons ?</h3>
+                    <p>Découvrez comment votre générosité finance nos programmes et change des vies</p>
+                    <span class="action-btn-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                </a>
                 <a href="formulaire-don.html" class="action-btn-card">
                     <div class="action-btn-icon" style="background:var(--gradient-warm);"><i class="fas fa-hand-holding-heart"></i></div>
                     <h3>Faire un don</h3>
@@ -709,19 +661,6 @@
         });
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // Accordion: A quoi servent vos dons
-        document.getElementById('accordionDons').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.getElementById('accordionDonsBody').classList.toggle('open');
-        });
-
-        // Sub-items accordion
-        document.querySelectorAll('.don-sub-header').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                this.nextElementSibling.classList.toggle('open');
-            });
-        });
     </script>
 
 </body>
