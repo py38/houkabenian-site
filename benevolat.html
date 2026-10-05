@@ -98,7 +98,7 @@
             margin-bottom: 2rem;
         }
 
-        /* Accordion - 10 Reasons */
+        /* Paginated Reasons */
         .raisons-section {
             padding: 80px 0;
             background: #f8f9fa;
@@ -120,108 +120,81 @@
             margin-right: auto;
         }
 
-        .accordion {
+        .raisons-container {
             max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
         }
 
-        .accordion-item {
+        .raison-panel {
+            display: none;
             background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: box-shadow 0.3s;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            animation: fadeIn 0.4s ease;
         }
-        .accordion-item:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        .raison-panel.active {
+            display: block;
         }
-        .accordion-item.active {
-            box-shadow: 0 4px 20px rgba(0,167,157,0.15);
-        }
-
-        .accordion-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 18px 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            user-select: none;
-        }
-        .accordion-header:hover {
-            background: #f0faf9;
-        }
-        .accordion-item.active .accordion-header {
-            background: #f0faf9;
-            border-bottom: 1px solid #e8f5f4;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .accordion-number {
-            width: 36px;
-            height: 36px;
-            min-width: 36px;
-            background: var(--teal);
+        .raison-panel .raison-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--teal), #007a73);
             color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .accordion-title {
-            flex: 1;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
-            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .raison-panel h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             color: var(--navy);
+            margin-bottom: 20px;
+            line-height: 1.3;
         }
-
-        .accordion-icon {
-            width: 32px;
-            height: 32px;
-            min-width: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--teal);
-            font-size: 1rem;
-            transition: transform 0.3s;
-        }
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        .accordion-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-        .accordion-body-inner {
-            padding: 24px;
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-        }
-        .accordion-body-inner img {
-            width: 180px;
-            height: 130px;
+        .raison-panel .raison-image {
+            width: 100%;
+            height: 300px;
             object-fit: cover;
-            border-radius: 10px;
-            flex-shrink: 0;
+            border-radius: 12px;
+            margin-bottom: 24px;
         }
-        .accordion-body-inner .accordion-text {
-            flex: 1;
-        }
-        .accordion-body-inner .accordion-text p {
+        .raison-panel .raison-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
             color: #555;
-            line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
         }
-        .accordion-body-inner .accordion-text .btn-lire-plus {
+        .raison-panel .raison-highlight {
+            background: linear-gradient(135deg, rgba(0,167,157,0.1), rgba(141,198,63,0.1));
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .raison-panel .raison-highlight p {
+            margin-bottom: 0;
+            color: #444;
+        }
+        .raison-panel blockquote {
+            border-left: 4px solid var(--teal);
+            margin: 24px 0;
+            padding: 16px 24px;
+            background: rgba(0,167,157,0.05);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .raison-panel .btn-lire-plus {
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -231,8 +204,67 @@
             font-size: 0.95rem;
             transition: gap 0.2s;
         }
-        .accordion-body-inner .accordion-text .btn-lire-plus:hover {
+        .raison-panel .btn-lire-plus:hover {
             gap: 10px;
+        }
+
+        .raison-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .raison-nav button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--navy);
+            border: 2px solid #e0e0e0;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .raison-nav button:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+        .raison-nav button.active {
+            background: var(--teal);
+            color: #fff;
+            border-color: var(--teal);
+        }
+
+        .raison-share {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+        }
+        .raison-share span {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .raison-share a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .raison-share a:hover {
+            background: var(--orange);
+            color: #fff;
         }
 
         /* Recruitment process */
@@ -355,12 +387,16 @@
             .page-hero h1 {
                 font-size: 2.2rem;
             }
-            .accordion-body-inner {
-                flex-direction: column;
+            .raison-panel {
+                padding: 24px;
             }
-            .accordion-body-inner img {
-                width: 100%;
+            .raison-panel .raison-image {
                 height: 200px;
+            }
+            .raison-nav button {
+                width: 38px;
+                height: 38px;
+                font-size: 0.8rem;
             }
             .form-section .form-wrapper {
                 padding: 24px;
@@ -406,185 +442,138 @@
             <h2>10 raisons de devenir b&eacute;n&eacute;vole</h2>
             <p class="section-subtitle">D&eacute;couvrez pourquoi rejoindre HOUKABENIAN est une exp&eacute;rience enrichissante et transformatrice.</p>
 
-            <div class="accordion">
-                <!-- Raison 1 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">1</div>
-                        <div class="accordion-title">C'est bon pour la sant&eacute;</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-01.jpg" alt="C'est bon pour la sant&eacute;">
-                            <div class="accordion-text">
-                                <p>94 % des personnes qui font du b&eacute;n&eacute;volat mentionnent que &ccedil;a am&eacute;liore leur humeur. Le b&eacute;n&eacute;volat contribue &agrave; am&eacute;liorer la qualit&eacute; de vie et la sant&eacute; des collectivit&eacute;s. Une &eacute;tude r&eacute;v&egrave;le que 100 heures de b&eacute;n&eacute;volat par ann&eacute;e am&eacute;liorent les capacit&eacute;s physiques et mentales. Les a&icirc;n&eacute;s qui font du b&eacute;n&eacute;volat sont moins souvent aux prises avec une maladie li&eacute;e au stress.</p>
-                                <a href="articles/raison-sante.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
+            <div class="raisons-container">
+                <div class="raison-panel active" data-raison="1">
+                    <span class="raison-tag">Raison #1</span>
+                    <h3>C'est bon pour la sant&eacute;</h3>
+                    <img src="images/raisons/raison-01.jpg" alt="C'est bon pour la sant&eacute;" class="raison-image">
+                    <div class="raison-text">
+                        <p>94 % des personnes qui font du b&eacute;n&eacute;volat mentionnent que &ccedil;a am&eacute;liore leur humeur. Le b&eacute;n&eacute;volat contribue &agrave; am&eacute;liorer la qualit&eacute; de vie et la sant&eacute; des collectivit&eacute;s.</p>
+                        <div class="raison-highlight">
+                            <p>Une &eacute;tude r&eacute;v&egrave;le que 100 heures de b&eacute;n&eacute;volat par ann&eacute;e am&eacute;liorent les capacit&eacute;s physiques et mentales. Les a&icirc;n&eacute;s qui font du b&eacute;n&eacute;volat sont moins souvent aux prises avec une maladie li&eacute;e au stress.</p>
                         </div>
+                        <blockquote>&laquo; Depuis que je suis b&eacute;n&eacute;vole chez HOUKABENIAN, je me sens plus en forme, plus joyeuse. C'est le meilleur rem&egrave;de que j'ai trouv&eacute;. &raquo;</blockquote>
+                        <a href="articles/raison-sante.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 2 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">2</div>
-                        <div class="accordion-title">Pour faire partie de la grande famille</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-02.jpg" alt="Pour faire partie de la grande famille">
-                            <div class="accordion-text">
-                                <p>Depuis 5 ans, nos b&eacute;n&eacute;voles contribuent dans le plaisir &agrave; cette &oelig;uvre de solidarit&eacute; et d'entraide. Ils accompagnent des personnes &acirc;g&eacute;es isol&eacute;es dans un esprit familial. Dans tout le pays, vous trouverez &agrave; HOUKABENIAN une ambiance chaleureuse, humaine et festive.</p>
-                                <a href="articles/raison-grande-famille.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
+                <div class="raison-panel" data-raison="2">
+                    <span class="raison-tag">Raison #2</span>
+                    <h3>Pour faire partie de la grande famille</h3>
+                    <img src="images/raisons/raison-02.jpg" alt="Pour faire partie de la grande famille" class="raison-image">
+                    <div class="raison-text">
+                        <p>Depuis 5 ans, nos b&eacute;n&eacute;voles contribuent dans le plaisir &agrave; cette &oelig;uvre de solidarit&eacute; et d'entraide. Ils accompagnent des personnes &acirc;g&eacute;es isol&eacute;es dans un esprit familial.</p>
+                        <div class="raison-highlight">
+                            <p>Dans tout le pays, vous trouverez &agrave; HOUKABENIAN une ambiance chaleureuse, humaine et festive.</p>
                         </div>
+                        <a href="articles/raison-grande-famille.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 3 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">3</div>
-                        <div class="accordion-title">Parce que nous sommes compr&eacute;hensifs</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-03.jpg" alt="Parce que nous sommes compr&eacute;hensifs">
-                            <div class="accordion-text">
-                                <p>Nous savons que votre temps est pr&eacute;cieux et que vous d&eacute;sirez vivre diff&eacute;rentes exp&eacute;riences. Nous respectons le temps que vous avez &agrave; donner et les limites que vous exprimez. Par exemple approximativement quatre heures par mois.</p>
-                                <a href="articles/raison-comprehensibles.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
+                <div class="raison-panel" data-raison="3">
+                    <span class="raison-tag">Raison #3</span>
+                    <h3>Parce que nous sommes compr&eacute;hensifs</h3>
+                    <img src="images/raisons/raison-03.jpg" alt="Parce que nous sommes compr&eacute;hensifs" class="raison-image">
+                    <div class="raison-text">
+                        <p>Nous savons que votre temps est pr&eacute;cieux et que vous d&eacute;sirez vivre diff&eacute;rentes exp&eacute;riences. Nous respectons le temps que vous avez &agrave; donner et les limites que vous exprimez.</p>
+                        <div class="raison-highlight">
+                            <p>Par exemple, approximativement quatre heures par mois suffisent pour faire une diff&eacute;rence.</p>
                         </div>
+                        <a href="articles/raison-comprehensibles.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 4 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">4</div>
-                        <div class="accordion-title">Pour vivre de grands moments</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                <div class="raison-panel" data-raison="4">
+                    <span class="raison-tag">Raison #4</span>
+                    <h3>Pour vivre de grands moments</h3>
+                    <img src="images/raisons/raison-04.jpg" alt="Pour vivre de grands moments" class="raison-image">
+                    <div class="raison-text">
+                        <p>C&eacute;l&eacute;brer la beaut&eacute; de la vie et de la vieillesse fait partie de notre vision. Tout ce que nous faisons vise &agrave; cr&eacute;er du bonheur en offrant amiti&eacute;, tendresse et r&eacute;confort.</p>
+                        <a href="articles/raison-grands-moments.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-04.jpg" alt="Pour vivre de grands moments">
-                            <div class="accordion-text">
-                                <p>C&eacute;l&eacute;brer la beaut&eacute; de la vie et de la vieillesse fait partie de notre vision. Tout ce que nous faisons vise &agrave; cr&eacute;er du bonheur en offrant amiti&eacute;, tendresse et r&eacute;confort.</p>
-                                <a href="articles/raison-grands-moments.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 5 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">5</div>
-                        <div class="accordion-title">Pour avoir un impact direct sur la vie de personnes &acirc;g&eacute;es</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                <div class="raison-panel" data-raison="5">
+                    <span class="raison-tag">Raison #5</span>
+                    <h3>Pour avoir un impact direct sur la vie de personnes &acirc;g&eacute;es</h3>
+                    <img src="images/raisons/raison-05.jpg" alt="Pour avoir un impact direct" class="raison-image">
+                    <div class="raison-text">
+                        <p>Briser l'isolement, une personne &agrave; la fois, avec un sourire, une &eacute;coute paisible, une bonne conversation amicale, le fait d'&ecirc;tre simplement l&agrave;.</p>
+                        <a href="articles/raison-impact-direct.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-05.jpg" alt="Pour avoir un impact direct">
-                            <div class="accordion-text">
-                                <p>Briser l'isolement, une personne &agrave; la fois, avec un sourire, une &eacute;coute paisible, une bonne conversation amicale, le fait d'&ecirc;tre simplement l&agrave;.</p>
-                                <a href="articles/raison-impact-direct.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 6 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">6</div>
-                        <div class="accordion-title">Pour contribuer &agrave; une soci&eacute;t&eacute; bien &eacute;quilibr&eacute;e</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                <div class="raison-panel" data-raison="6">
+                    <span class="raison-tag">Raison #6</span>
+                    <h3>Pour contribuer &agrave; une soci&eacute;t&eacute; bien &eacute;quilibr&eacute;e</h3>
+                    <img src="images/raisons/raison-06.jpg" alt="Pour contribuer &agrave; une soci&eacute;t&eacute; bien &eacute;quilibr&eacute;e" class="raison-image">
+                    <div class="raison-text">
+                        <p>Le secteur caritatif est l'un des trois piliers de la soci&eacute;t&eacute; aux c&ocirc;t&eacute;s des secteurs public et priv&eacute;. HOUKABENIAN d&eacute;pend largement de cette source vive pour mener sa mission &agrave; bien.</p>
+                        <a href="articles/raison-societe-equilibree.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-06.jpg" alt="Pour contribuer &agrave; une soci&eacute;t&eacute; bien &eacute;quilibr&eacute;e">
-                            <div class="accordion-text">
-                                <p>Le secteur caritatif est l'un des trois piliers de la soci&eacute;t&eacute; aux c&ocirc;t&eacute;s des secteurs public et priv&eacute;. HOUKABENIAN d&eacute;pend largement de cette source vive pour mener sa mission &agrave; bien.</p>
-                                <a href="articles/raison-societe-equilibree.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 7 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">7</div>
-                        <div class="accordion-title">Pour vivre des exp&eacute;riences interg&eacute;n&eacute;rationnelles</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                <div class="raison-panel" data-raison="7">
+                    <span class="raison-tag">Raison #7</span>
+                    <h3>Pour vivre des exp&eacute;riences interg&eacute;n&eacute;rationnelles</h3>
+                    <img src="images/raisons/raison-07.jpg" alt="Pour vivre des exp&eacute;riences interg&eacute;n&eacute;rationnelles" class="raison-image">
+                    <div class="raison-text">
+                        <p>Les jeunes sont engag&eacute;s et font du b&eacute;n&eacute;volat (54 % des 15 &agrave; 24 ans). Chez HOUKABENIAN, nous trouvons des b&eacute;n&eacute;voles de tous &acirc;ges et de toutes g&eacute;n&eacute;rations.</p>
+                        <a href="articles/raison-intergenerationnel.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-07.jpg" alt="Pour vivre des exp&eacute;riences interg&eacute;n&eacute;rationnelles">
-                            <div class="accordion-text">
-                                <p>Les jeunes sont engag&eacute;s et font du b&eacute;n&eacute;volat (54 % des 15 &agrave; 24 ans). Chez HOUKABENIAN, nous trouvons des b&eacute;n&eacute;voles de tous &acirc;ges et de toutes g&eacute;n&eacute;rations.</p>
-                                <a href="articles/raison-intergenerationnel.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 8 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">8</div>
-                        <div class="accordion-title">Pour rencontrer d'autres personnes actives et g&eacute;n&eacute;reuses</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                <div class="raison-panel" data-raison="8">
+                    <span class="raison-tag">Raison #8</span>
+                    <h3>Pour rencontrer d'autres personnes actives et g&eacute;n&eacute;reuses</h3>
+                    <img src="images/raisons/raison-08.jpg" alt="Pour rencontrer d'autres personnes actives et g&eacute;n&eacute;reuses" class="raison-image">
+                    <div class="raison-text">
+                        <p>Nos b&eacute;n&eacute;voles sont des gens actifs qui choisissent d'offrir leur temps pour aider des personnes dans le besoin. Ils retirent de nombreux bienfaits comme le sentiment d'appartenance, des liens sociaux, le perfectionnement de leurs comp&eacute;tences.</p>
+                        <a href="articles/raison-rencontres.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-08.jpg" alt="Pour rencontrer d'autres personnes actives et g&eacute;n&eacute;reuses">
-                            <div class="accordion-text">
-                                <p>Nos b&eacute;n&eacute;voles sont des gens actifs qui choisissent d'offrir leur temps pour aider des personnes dans le besoin. Ils retirent de nombreux bienfaits comme le sentiment d'appartenance, des liens sociaux, le perfectionnement de leurs comp&eacute;tences.</p>
-                                <a href="articles/raison-rencontres.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 9 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">9</div>
-                        <div class="accordion-title">Pour participer au bien-&ecirc;tre des nouveaux parents</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                <div class="raison-panel" data-raison="9">
+                    <span class="raison-tag">Raison #9</span>
+                    <h3>Pour participer au bien-&ecirc;tre des nouveaux parents</h3>
+                    <img src="images/raisons/raison-09.jpg" alt="Pour participer au bien-&ecirc;tre des nouveaux parents" class="raison-image">
+                    <div class="raison-text">
+                        <p>Au c&oelig;ur de notre action, les gens. HOUKABENIAN ne serait pas ce qu'il est sans b&eacute;n&eacute;voles. Devenir b&eacute;n&eacute;vole c'est porter int&eacute;r&ecirc;t envers les b&eacute;b&eacute;s, les enfants et les parents.</p>
+                        <a href="articles/raison-bien-etre-parents.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-09.jpg" alt="Pour participer au bien-&ecirc;tre des nouveaux parents">
-                            <div class="accordion-text">
-                                <p>Au c&oelig;ur de notre action, les gens. HOUKABENIAN ne serait pas ce qu'il est sans b&eacute;n&eacute;voles. Devenir b&eacute;n&eacute;vole c'est porter int&eacute;r&ecirc;t envers les b&eacute;b&eacute;s, les enfants et les parents.</p>
-                                <a href="articles/raison-bien-etre-parents.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
                 </div>
 
-                <!-- Raison 10 -->
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-number">10</div>
-                        <div class="accordion-title">Pour un d&eacute;veloppement personnel accompli</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                <div class="raison-panel" data-raison="10">
+                    <span class="raison-tag">Raison #10</span>
+                    <h3>Pour un d&eacute;veloppement personnel accompli</h3>
+                    <img src="images/raisons/raison-10.jpg" alt="Pour un d&eacute;veloppement personnel accompli" class="raison-image">
+                    <div class="raison-text">
+                        <p>Connaissance de soi, valorisation, moyen de se r&eacute;aliser, plus grande ouverture aux autres, acquisition de connaissances et d'habilet&eacute;s nouvelles.</p>
+                        <a href="articles/raison-developpement-personnel.html" class="btn-lire-plus">Lire l'article complet <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-body-inner">
-                            <img src="images/raisons/raison-10.jpg" alt="Pour un d&eacute;veloppement personnel accompli">
-                            <div class="accordion-text">
-                                <p>Connaissance de soi, valorisation, moyen de se r&eacute;aliser, plus grande ouverture aux autres, acquisition de connaissances et d'habilet&eacute;s nouvelles.</p>
-                                <a href="articles/raison-developpement-personnel.html" class="btn-lire-plus">Lire la suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="raison-share"><span>Partager :</span><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></div>
+                </div>
+
+                <div class="raison-nav" id="raisonNav">
+                    <button class="active" data-target="1">01</button>
+                    <button data-target="2">02</button>
+                    <button data-target="3">03</button>
+                    <button data-target="4">04</button>
+                    <button data-target="5">05</button>
+                    <button data-target="6">06</button>
+                    <button data-target="7">07</button>
+                    <button data-target="8">08</button>
+                    <button data-target="9">09</button>
+                    <button data-target="10">10</button>
                 </div>
             </div>
         </div>
@@ -707,24 +696,18 @@
     </button>
 
     <script>
-        // Accordion toggle
-        function toggleAccordion(header) {
-            const item = header.parentElement;
-            const body = item.querySelector('.accordion-body');
-            const isActive = item.classList.contains('active');
-
-            // Close all
-            document.querySelectorAll('.accordion-item').forEach(function(ai) {
-                ai.classList.remove('active');
-                ai.querySelector('.accordion-body').style.maxHeight = null;
-            });
-
-            // Open clicked if it was closed
-            if (!isActive) {
-                item.classList.add('active');
-                body.style.maxHeight = body.scrollHeight + 'px';
-            }
-        }
+        // Paginated reasons
+        document.getElementById('raisonNav').addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn) return;
+            var target = btn.getAttribute('data-target');
+            document.querySelectorAll('.raison-panel').forEach(function(p) { p.classList.remove('active'); });
+            document.querySelectorAll('.raison-nav button').forEach(function(b) { b.classList.remove('active'); });
+            var panel = document.querySelector('.raison-panel[data-raison="' + target + '"]');
+            if (panel) panel.classList.add('active');
+            btn.classList.add('active');
+            document.getElementById('raisons').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
 
         // Hamburger menu
         var hamburger = document.getElementById('hamburger');
