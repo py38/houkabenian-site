@@ -22,7 +22,7 @@
         .page-hero {
             background: var(--navy);
             color: #fff;
-            padding: 40px 0 80px;
+            padding: 100px 0 80px;
             text-align: center;
         }
         .page-hero h1 {
@@ -81,7 +81,50 @@
 </head>
 <body>
 
-    <!-- Hero -->
+    
+    <header class="header scrolled" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="HOUKABENIAN" width="52" height="52">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">HOUKABENIAN</span>
+                    <span class="logo-tagline">&laquo; Aidons-les &raquo;</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous</a>
+                <a href="programmes.html" class="nav-link">Programmes</a>
+                <a href="benevolat.html" class="nav-link">B&eacute;n&eacute;volat</a>
+                <a href="activites.html" class="nav-link">Activit&eacute;s</a>
+                <a href="actualites.html" class="nav-link">Actualit&eacute;s</a>
+                <a href="equipe.html" class="nav-link">&Eacute;quipe</a>
+            </nav>
+            <div class="header-actions">
+                <a href="faire-un-don.html" class="btn btn-primary btn-sm">Faire un don</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous</a>
+            <a href="programmes.html" class="mobile-nav-link">Programmes</a>
+            <a href="benevolat.html" class="mobile-nav-link">B&eacute;n&eacute;volat</a>
+            <a href="activites.html" class="mobile-nav-link">Activit&eacute;s</a>
+            <a href="actualites.html" class="mobile-nav-link">Actualit&eacute;s</a>
+            <a href="equipe.html" class="mobile-nav-link">&Eacute;quipe</a>
+            <div class="mobile-nav-cta">
+                <a href="faire-un-don.html" class="btn btn-primary">Faire un don</a>
+                <a href="benevolat.html" class="btn btn-outline-white">Devenir B&eacute;n&eacute;vole</a>
+            </div>
+        </div>
+    </div>
+
+<!-- Hero -->
     <section class="page-hero">
         <div class="container">
             <h1>Notre Équipe</h1>
@@ -132,14 +175,6 @@
 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="images/equipe/conseiller-medical.jpg" alt="Dr N'DA Koffi Denis" class="team-photo">
-                    </div>
-                    <h4 class="team-name">Dr N'DA Koffi Denis</h4>
-                    <p class="team-role">Conseiller Médical</p>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-avatar">
                         <img src="images/equipe/conseillere-medicale.jpg" alt="Dr LOUCOU Nora Reine" class="team-photo">
                     </div>
                     <h4 class="team-name">Dr LOUCOU Nora Reine</h4>
@@ -165,14 +200,14 @@
                 <h2>Direction Exécutive</h2>
                 <div class="title-bar"></div>
             </div>
-            <div class="team-grid" style="max-width:500px;margin:0 auto;">
+            <div class="team-grid" style="max-width:800px;margin:0 auto;">
 
                 <div class="team-card">
                     <div class="team-avatar">
                         <img src="images/equipe/directrice-executive.jpg" alt="Mme BAKAYOKO Rokia" class="team-photo">
                     </div>
                     <h4 class="team-name">Mme BAKAYOKO Rokia</h4>
-                    <p class="team-role">Directrice Exécutive</p>
+                    <p class="team-role">Directrice Ex&eacute;cutive</p>
                 </div>
 
                 <div class="team-card">
@@ -181,6 +216,22 @@
                     </div>
                     <h4 class="team-name">KONAN Koffi Geoffroy</h4>
                     <p class="team-role">Directeur des Ressources Humaines</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/nouveau-membre-1.jpg" alt="M. KRA Konan Joseph" class="team-photo">
+                    </div>
+                    <h4 class="team-name">M. KRA Konan Joseph</h4>
+                    <p class="team-role">Charg&eacute; de Mobilisation</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="images/equipe/nouveau-membre-2.jpg" alt="Mme Moya KONAN" class="team-photo">
+                    </div>
+                    <h4 class="team-name">Mme Moya KONAN</h4>
+                    <p class="team-role">Conseill&egrave;re BLATHA &amp; BOUD'CHOU</p>
                 </div>
 
             </div>
